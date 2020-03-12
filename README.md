@@ -1,2 +1,3 @@
 # library_front
-Front-end for development Project Library Group 1
+Front-end development of library with Angular
+Authors: Humbert Pauline, Kienlen Henry, Lahmar Sophie, Puigrodon Bastien, Mambrini Baptiste
