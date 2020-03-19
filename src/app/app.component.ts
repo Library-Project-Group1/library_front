@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
   title = 'library-front';
 
   constructor(private http: HttpClient) {
-    this.title = 'Spring Boot - Angular Application';
+    this.title = 'My Library connected';
   }
 
   ngOnInit() {

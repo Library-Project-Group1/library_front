@@ -1,26 +1,24 @@
-<h1>{{title}}</h1>
-<h5>Page gestion User</h5>
+<h1 class="text-center">{{title}}</h1>
+<!--<div class="container">-->
+<!--  <div class="row">-->
+<!--    <div class="col-md-12">-->
+<!--      <div class="card bg-dark my-5">-->
+<!--        <div class="card-body">-->
+<!--          <h2 class="card-title text-center text-white py-3">Manage for admin </h2>-->
+<!--          <ul class="text-center list-inline py-3">-->
+<!--            <li class="list-inline-item">-->
+<!--              <a routerLink="users" class="btn btn-info">Manage Users</a>-->
+<!--            </li>-->
+<!--            <li class="list-inline-item">-->
+<!--              <a routerLink="products" class="btn btn-info">Manage Products</a>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<app-home-admin></app-home-admin>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card bg-dark my-5">
-        <div class="card-body">
-          <h2 class="card-title text-center text-white py-3">{{ title }} <br/> Manage Users </h2>
-          <ul class="text-center list-inline py-3">
-            <li class="list-inline-item">
-              <a routerLink="allUsers" class="btn btn-info">List Users</a>
-            </li>
-            <li class="list-inline-item">
-              <a routerLink="createUser" class="btn btn-info">Add User</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<!--<router-outlet></router-outlet>-->
 
-<!--<app-user></app-user>-->
-<router-outlet></router-outlet>
-<app-messages></app-messages>

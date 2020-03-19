@@ -17,12 +17,16 @@ export class UserListComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.userService.findAll().subscribe((users => this.users = users) ,
+      error => console.error('There are an error!', error))
+
   }
 
-  getAll() {
-    return this.userService.findAll().subscribe(users => this.users = users,
-      error => console.error('There are an error!', error))
-  }
+  // getAll() {
+  //   return this.userService.findAll().subscribe((users => this.users = users) ,
+  //     error => console.error('There are an error!', error))
+  // }
 
 
 

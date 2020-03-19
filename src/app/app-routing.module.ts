@@ -5,10 +5,10 @@ import {UserListComponent} from './user-list/user-list.component';
 import { UserFormComponent } from './user-form/user-form.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/users', pathMatch: 'full' },
+  { path: '', redirectTo: '/home-admin', pathMatch: 'full' },
   { path: 'users', component: UserComponent },
-  { path: 'allUsers', component: UserListComponent },
-  { path: 'createUser', component: UserFormComponent }
+  { path: 'users/listUsers', component: UserListComponent },
+  { path: 'users/createUser', component: UserFormComponent }
 
 ];
 

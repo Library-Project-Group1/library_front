@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { User } from '../user';
 import { UserService } from '../service/user.service';
+import { AppComponent } from '../app.component';
 import {Observable} from 'rxjs';
 
 @Component({
@@ -9,6 +10,8 @@ import {Observable} from 'rxjs';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+
+
 
   // user: User = {
   //   id: 1,

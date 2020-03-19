@@ -8,19 +8,20 @@ import {FormsModule } from '@angular/forms';
 import { UserComponent } from './user/user.component';
 import { UserService } from './service/user.service';
 import { UserListComponent } from './user-list/user-list.component';
-import { MessagesComponent } from './messages/messages.component';
+// import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
-// import { UserFormComponent } from './user-form/user-form.component';
+import { UserFormComponent } from './user-form/user-form.component';
+import { HomeAdminComponent } from './home-admin/home-admin.component';
 // import { ConfigComponent } from './config/config.component';
 
-// import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
     UserComponent,
-    MessagesComponent
+    UserFormComponent,
+    HomeAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -33,8 +34,6 @@ import { AppRoutingModule } from './app-routing.module';
 })
 export class AppModule { }
 
-// UserFormComponent,
 // ConfigComponent,
 // MessageComponent
 
-// AppRoutingModule,

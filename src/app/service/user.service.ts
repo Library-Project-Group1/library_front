@@ -1,9 +1,8 @@
 import {Injectable, Input} from '@angular/core';
 import { User } from 'src/app/user';
-import {UserListComponent} from '../user-list/user-list.component';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import {MessageService} from '../message.service';
+// import {MessageService} from '../message.service';
 import { catchError, map, tap } from 'rxjs/operators';
 import {of} from 'rxjs';
 
@@ -16,7 +15,7 @@ export class UserService {
   private url: string;
   private usersUrl: 'http://localhost8080/api/';
 
-  constructor(private http: HttpClient, private messageService: MessageService) {
+  constructor(private http: HttpClient) { //private messageService: MessageService
     this.url = 'http://localhost8080/api/';
   }
 
@@ -52,18 +51,18 @@ export class UserService {
   // }
 
 
-  private log(message: string) {
-    this.messageService.add(`UserService: ${message}`);
-  }
+  // private log(message: string) {
+  //   this.messageService.add(`UserService: ${message}`);
+  // }
 
-  private handleError<T> (operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-
-      console.error(error); // log to console instead
-
-      this.log(`${operation} failed: ${error.message}`);
-
-      return of(result as T);
-    };
-  }
+  // private handleError<T> (operation = 'operation', result?: T) {
+  //   return (error: any): Observable<T> => {
+  //
+  //     console.error(error); // log to console instead
+  //
+  //     this.log(`${operation} failed: ${error.message}`);
+  //
+  //     return of(result as T);
+  //   };
+  // }
 }
