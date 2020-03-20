@@ -12,16 +12,14 @@ import {of} from 'rxjs';
 })
 export class UserService {
 
-  private url: string;
-  private usersUrl: 'http://localhost8080/api/';
+  private usersUrl = 'http://localhost:8080/api/';
 
   constructor(private http: HttpClient) { //private messageService: MessageService
-    this.url = 'http://localhost8080/api/';
   }
 
   public findAll(): Observable<User[]> {
     // this.messageService.add('UserService: fetched users');
-    return this.http.get<User[]>(this.url+'allUsers');
+    return this.http.get<User[]>(this.usersUrl+'allUsers');
   }
 
   // getUser(id: number): Observable<User> {
