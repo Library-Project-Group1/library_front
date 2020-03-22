@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UserComponent } from './user/user.component';
-import {UserListComponent} from './user-list/user-list.component';
-import { UserFormComponent } from './user-form/user-form.component';
+import { UserComponent } from './components/user/user/user.component';
+import {UserListComponent} from './components/user/user-list/user-list.component';
+import { UserFormComponent } from './components/user/user-form/user-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home-admin', pathMatch: 'full' },
