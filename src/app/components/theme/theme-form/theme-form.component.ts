@@ -10,6 +10,7 @@ import {ThemeService} from '../../../service/theme/theme.service';
 })
 export class ThemeFormComponent implements OnInit {
 
+  @Input()
   theme: Theme;
   themes: Theme[];
 
@@ -29,19 +30,21 @@ export class ThemeFormComponent implements OnInit {
       error => console.error('There are an error !', error));
   }
 
-  editSubmit() {
-    this.themeService.updateThemeById(this.theme).subscribe();
+  editSubmit(theme: Theme) {
+    this.themeService.updateThemeById(theme).subscribe();
   }
 
   deleteSubmit(theme: Theme) {
-    this.themeService.deleteThemeById(this.theme.id).subscribe();
+    this.themeService.deleteThemeById(theme.id).subscribe();
   }
 
   addSubmit(name: string): void {
     name = name.trim();
     if (!name) {return; }
     this.themeService.createTheme({name} as Theme)
-      .subscribe();
+      .subscribe(theme => {
+        this.themes.push(theme);
+      });
   }
 
 

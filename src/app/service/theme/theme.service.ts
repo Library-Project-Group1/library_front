@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Theme } from '../../models/theme/theme';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable({
@@ -9,7 +9,9 @@ import { Observable } from 'rxjs/Observable';
 export class ThemeService {
 
   private themesUrl = 'http://localhost:8080/apiThemes/';
-
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
   constructor(private http: HttpClient) { }
 
   public findAllThemes(): Observable<Theme[]> {
@@ -21,14 +23,14 @@ export class ThemeService {
   }
 
   public deleteThemeById(themeID: number) {
-    return this.http.delete<Theme>(this.themesUrl + '/deleteTheme/' + themeID);
+    return this.http.delete<Theme>(this.themesUrl + '/deleteTheme/' + themeID, this.httpOptions);
   }
 
-  public updateThemeById(theme: Theme) {
-    return this.http.put<Theme>(this.themesUrl + '/theme/' + theme.id + '/editTheme', theme, null);
+  public updateThemeById(theme: Theme): Observable<any> {
+    return this.http.put<Theme>(this.themesUrl + '/theme/' + theme.id + '/editTheme', theme, this.httpOptions);
   }
 
   public createTheme(theme: Theme) {
-    return this.http.post<Theme>(this.themesUrl + '/createTheme', theme, null);
+    return this.http.post<Theme>(this.themesUrl + '/createTheme', theme, this.httpOptions);
   }
 }

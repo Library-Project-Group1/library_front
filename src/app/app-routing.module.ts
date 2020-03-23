@@ -5,6 +5,7 @@ import {UserListComponent} from './components/user/user-list/user-list.component
 import { UserFormComponent } from './components/user/user-form/user-form.component';
 import {CategoryComponent} from './components/Category/Category/category.component';
 import {CategoryListComponent} from './components/Category/Category-list/category-list.component';
+import {ThemeFormComponent} from './components/theme/theme-form/theme-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home-admin', pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'users/createUser', component: UserFormComponent },
   { path: 'categories', component: CategoryComponent },
   { path: 'categories/listCategories', component: CategoryListComponent},
+  { path: 'themes', component: ThemeFormComponent}
 ];
 
 @NgModule({
