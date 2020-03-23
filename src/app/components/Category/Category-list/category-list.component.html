@@ -1,0 +1,29 @@
+<!--<p>LIST CATEGORIES</p>-->
+<app-category></app-category>
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let category of categories">
+        <td>{{ category.id }}</td>
+        <td>{{ category.name }}</td>
+        <td>
+          <a routerLink="/createCategory" class="btn btn-info">Add</a>
+        </td>
+        <td>
+          <a routerLink="categories" class="btn btn-info">Edit</a>
+        </td>
+        <td>
+          <a routerLink="categories" class="btn btn-info">Delete</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

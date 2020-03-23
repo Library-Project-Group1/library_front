@@ -12,6 +12,10 @@ import { UserFormComponent } from './components/user/user-form/user-form.compone
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { ThemeFormComponent } from './components/theme/theme-form/theme-form.component';
 
+import { CategoryComponent } from './components/Category/Category/category.component';
+import { CategoryListComponent } from './components/Category/Category-list/category-list.component';
+
+
 
 @NgModule({
   declarations: [
@@ -21,7 +25,10 @@ import { ThemeFormComponent } from './components/theme/theme-form/theme-form.com
     UserFormComponent,
     AdminHomeComponent,
     ThemeFormComponent,
-    ],
+    CategoryComponent,
+    CategoryListComponent,
+  ],
+
   imports: [
     BrowserModule,
     FormsModule,
