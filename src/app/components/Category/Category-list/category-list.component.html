@@ -1,7 +1,7 @@
-<!--<p>LIST CATEGORIES</p>-->
 <app-category></app-category>
 <div class="card my-5">
   <div class="card-body">
+    <p>CATEGORIES LIST</p>
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
       <tr>
@@ -19,7 +19,8 @@
           <a routerLink="/category/{id}/editCategory" class="btn btn-info">Edit</a>
         </td>
         <td>
-          <a routerLink="/deleteCategory/{id}" class="btn btn-info">Delete</a>
+<!--          <a routerLink=[(ngModel)]="category.id" class="btn btn-info">Delete</a>-->
+          <input [(ngModel)]="category.id" class="btn btn-info"/>
         </td>
       </tr>
       </tbody>

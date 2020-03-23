@@ -42,5 +42,5 @@ export class CategoryListComponent implements OnInit {
   }
   removeSubmit() {
     this.categoryService.deleteCategoryById(this.category.id).subscribe();
-  }
+}
 }
