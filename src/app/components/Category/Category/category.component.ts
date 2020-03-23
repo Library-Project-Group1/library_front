@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {Category} from '../../../models/category/category';
 import {CategoryService} from '../../../service/category/category.service';
-import {error} from '@angular/compiler/src/util';
-import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-category',
@@ -13,21 +11,8 @@ export class CategoryComponent implements OnInit {
 
   category: Category;
 
-  constructor(
-    private categoryService: CategoryService,
-    private route: ActivatedRoute,
-    private router: Router,
-    ) { }
+  constructor(private categoryService: CategoryService) { }
 
   ngOnInit(): void {
-  }
-
-  addSubmit() {
-    this.categoryService.createCategory(this.category).subscribe(result => this.goToCreateCategory()),
-      console.error('There are an error!', error);
-  }
-
-  goToCreateCategory() {
-    this.router.navigate(['.."/createCategory"']);
   }
 }

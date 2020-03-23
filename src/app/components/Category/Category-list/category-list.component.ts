@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import {Category} from '../../../models/category/category';
 import {CategoryService} from '../../../service/category/category.service';
 import {error} from '@angular/compiler/src/util';
+import {Theme} from '../../../models/theme/theme';
 
 @Component({
   selector: 'app-category-form',
@@ -14,6 +15,7 @@ export class CategoryListComponent implements OnInit {
   @Input()
   categories: Category[];
   category: Category;
+  selectedCategory: Category;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,7 +28,9 @@ export class CategoryListComponent implements OnInit {
     this.categoryService.findAllCategories().subscribe((categories => this.categories = categories),
       error1 => console.error('There are an error!', error1));
   }
-
+  onSelect(category: Category): void {
+    this.selectedCategory = category;
+  }
   editCategory() {
     this.categoryService.updateCategoryById(this.category).subscribe(result => this.goToEditCategory()),
       console.error('There are an error!', error);
@@ -36,10 +40,16 @@ export class CategoryListComponent implements OnInit {
     this.router.navigate(['../category/{id}/editCategory']);
   }
 
-  removeCategory() {
-    this.category.id = this.route.snapshot.params.categoryID;
-    this.categoryService.deleteCategoryById(this.category.id).subscribe((data) => {
-    console.log('succes');
-    });
+  removeCategory(category: Category) {
+    this.categoryService.deleteCategoryById(category.id).subscribe();
+  }
+
+  addCategory(name: string): void {
+    name = name.trim();
+    if (!name) {return; }
+    this.categoryService.createCategory({name} as Theme)
+      .subscribe(theme => {
+        this.categories.push(theme);
+      });
   }
 }
