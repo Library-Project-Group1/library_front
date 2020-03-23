@@ -25,13 +25,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    NgbModule.forRoot()
+    NgbModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-// ConfigComponent,
-// MessageComponent
 
