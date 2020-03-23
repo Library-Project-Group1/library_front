@@ -10,8 +10,11 @@ import { UserListComponent } from './components/user/user-list/user-list.compone
 import { AppRoutingModule } from './app-routing.module';
 import { UserFormComponent } from './components/user/user-form/user-form.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { ThemeFormComponent } from './components/theme/theme-form/theme-form.component';
+
 import { CategoryComponent } from './components/Category/Category/category.component';
 import { CategoryListComponent } from './components/Category/Category-list/category-list.component';
+
 
 
 @NgModule({
@@ -21,9 +24,11 @@ import { CategoryListComponent } from './components/Category/Category-list/categ
     UserComponent,
     UserFormComponent,
     AdminHomeComponent,
+    ThemeFormComponent,
     CategoryComponent,
     CategoryListComponent,
   ],
+
   imports: [
     BrowserModule,
     FormsModule,

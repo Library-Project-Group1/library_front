@@ -28,7 +28,7 @@ export class ThemeService {
     return this.http.put<Theme>(this.themesUrl + '/theme/' + theme.id + '/editTheme', theme, null);
   }
 
-  public createCategory(theme: Theme) {
+  public createTheme(theme: Theme) {
     return this.http.post<Theme>(this.themesUrl + '/createTheme', theme, null);
   }
 }

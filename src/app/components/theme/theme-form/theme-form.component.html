@@ -1,0 +1,16 @@
+<ul class="themes">
+  <li *ngFor="let theme of themes">
+
+    <a routerLink="/edit/{{theme.id}}">
+      <span class="badge">{{theme.id}}</span> {{theme.name}}
+    </a>
+    <button class="delete" title="delete theme"
+            (click)="deleteSubmit(theme)">x</button>
+  </li>
+  <label>Theme name:
+  <input #themeName />
+  </label>
+  <button (click)="addSubmit(themeName.value); themeName.value=''">
+    add
+  </button>
+</ul>
