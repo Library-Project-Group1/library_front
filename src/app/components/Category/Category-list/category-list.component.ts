@@ -26,21 +26,20 @@ export class CategoryListComponent implements OnInit {
     this.categoryService.findAllCategories().subscribe((categories => this.categories = categories),
       error1 => console.error('There are an error!', error1));
   }
-  addSubmit() {
-    this.categoryService.createCategory(this.category).subscribe(result => this.goToCreateCategory()),
-      console.error('There are an error!', error);
-  }
-  goToCreateCategory() {
-    this.router.navigate(['.."/createCategory"']);
-  }
-  editSubmit() {
+
+  editCategory() {
     this.categoryService.updateCategoryById(this.category).subscribe(result => this.goToEditCategory()),
       console.error('There are an error!', error);
   }
+
   goToEditCategory() {
     this.router.navigate(['../category/{id}/editCategory']);
   }
-  removeSubmit() {
-    this.categoryService.deleteCategoryById(this.category.id).subscribe();
-}
+
+  removeCategory() {
+    this.category.id = this.route.snapshot.params.categoryID;
+    this.categoryService.deleteCategoryById(this.category.id).subscribe((data) => {
+    console.log('succes');
+    });
+  }
 }

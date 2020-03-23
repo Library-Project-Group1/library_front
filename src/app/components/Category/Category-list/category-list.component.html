@@ -16,11 +16,10 @@
         <td>{{ category.id }}</td>
         <td>{{ category.name }}</td>
         <td>
-          <a routerLink="/category/{id}/editCategory" class="btn btn-info">Edit</a>
+          <a routerLink="/category/{id}/editCategory" (click)="editCategory()" class="btn btn-info">Edit</a>
         </td>
         <td>
-<!--          <a routerLink=[(ngModel)]="category.id" class="btn btn-info">Delete</a>-->
-          <input [(ngModel)]="category.id" class="btn btn-info"/>
+          <button (click)="removeCategory()" class="btn btn-info">Delete</button>
         </td>
       </tr>
       </tbody>
