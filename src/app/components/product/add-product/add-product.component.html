@@ -1,0 +1,151 @@
+<nav>
+  <button routerLink="/products">Return</button>
+</nav>
+<br>
+<h2>Add new product</h2>
+<!--<div>-->
+<!--  <label>Title: <input type="text" formControlName="title"></label>-->
+<!--  <label>Creator: <input type="text" formControlName="creator"></label>-->
+<!--  <label>Date: <input type="date" formControlName="releaseDate"></label>-->
+<!--  <label>Description: <input type="text" formControlName="description"></label>-->
+<!--  <label>Quantity Total: <input type="text" formControlName="quantityTotal"></label>-->
+<!--  <label>Quantity available: <input type="text" formControlName="quantityAvailableToRent"></label>-->
+<!--  <label>Quantity rented: <input type="text" formControlName="quantityIsRenting"></label>-->
+<!--  <label>Price: <input type="text" formControlName="price"></label>-->
+<!--  <label>Picture: <input type="text" formControlName="pictureName"></label>-->
+<!--  <button></button>-->
+<!--</div>-->
+
+<!-- TODO VALIDATORS AND PATTERN-->
+
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="addSubmit()" #productForm="ngForm">
+      <div class="form-group">
+        <label for="category">Categories :</label><br/>
+        <select id="category" [(ngModel)]="categories"
+                name="category"
+                required #category="ngModel">
+          <option *ngFor="let category of categories" [value]="category"> {{category}} </option>
+        </select>
+      </div>
+      <div [hidden]="!category.pristine" class="alert alert-danger">Category is required</div>
+
+      <div class="form-group">
+        <label for="theme">Themes :</label><br/>
+        <select id="theme" [(ngModel)]="themes"
+                name="theme"
+                required #theme="ngModel">
+          <option *ngFor="let theme of themes" [value]="theme"> {{theme}} </option>
+        </select>
+      </div>
+      <div [hidden]="!theme.pristine" class="alert alert-danger">Theme is required</div>
+
+      <div class="form-group">
+        <label for="title">Title :</label><br/>
+        <input type="text" [(ngModel)]="product.title"
+               class="form-control"
+               id="title"
+               name="title"
+               placeholder="Enter title"
+               required #title="ngModel">
+      </div>
+      <div [hidden]="!title.pristine" class="alert alert-danger">Title is required</div>
+
+      <div class="form-group">
+        <label for="creator">Creator :</label><br/>
+        <input type="text" [(ngModel)]="product.creator"
+               class="form-control"
+               id="creator"
+               name="creator"
+               placeholder="Enter creator's name"
+               required #creator="ngModel">
+      </div>
+      <div [hidden]="!creator.pristine" class="alert alert-danger">Creator's name is required</div>
+
+      <div class="form-group">
+        <label for="date">Date :</label><br/>
+        <input type="date" [(ngModel)]="product.releaseDate"
+               class="form-control"
+               id="date"
+               name="date"
+               required #date="ngModel">
+      </div>
+      <div [hidden]="!date.pristine" class="alert alert-danger">Date is required</div>
+
+      <div class="form-group">
+        <label for="creator">Description :</label><br/>
+        <input type="text" [(ngModel)]="product.description"
+               class="form-control"
+               id="description"
+               name="description"
+               placeholder="Enter description"
+               required #description="ngModel">
+      </div>
+      <div [hidden]="!description.pristine" class="alert alert-danger">Description is required</div>
+
+      <div class="form-group">
+        <label for="price">Price :</label><br/>
+        <input type="number" min="0" step="0.01" [(ngModel)]="product.creator"
+               class="form-control"
+               id="price"
+               name="price"
+               placeholder="Enter price"
+               required #price="ngModel">
+      </div>
+      <div [hidden]="!price.pristine" class="alert alert-danger">Price is required</div>
+
+      <div class="form-group">
+        <label for="quantityTotal">Quantity Total :</label><br/>
+        <input type="number" min="0" [(ngModel)]="product.quantityTotal"
+               class="form-control"
+               id="quantityTotal"
+               name="quantityTotal"
+               placeholder="Enter total quantity"
+               required #quantityTotal="ngModel">
+      </div>
+      <div [hidden]="!quantityTotal.pristine" class="alert alert-danger">Quantity is required</div>
+
+      <div class="form-group">
+        <label for="quantityAvailable">Quantity Available :</label><br/>
+        <input type="number" min="0" [(ngModel)]="product.quantityTotal"
+               class="form-control"
+               id="quantityAvailable"
+               name="quantityAvailable"
+               placeholder="Enter available quantity"
+               required #quantityAvailable="ngModel">
+      </div>
+      <div [hidden]="!quantityAvailable.pristine" class="alert alert-danger">Quantity is required</div>
+
+      <div class="form-group">
+        <label for="quantityRented">Quantity Rented :</label><br/>
+        <input type="number" min="0" [(ngModel)]="product.quantityTotal"
+               class="form-control"
+               id="quantityRented"
+               name="quantityRented"
+               placeholder="Enter rented quantity"
+               required #quantityRented="ngModel">
+      </div>
+      <div [hidden]="!quantityRented.pristine" class="alert alert-danger">Quantity is required</div>
+
+      <div class="form-group">
+        <label for="picture">File :</label><br/>
+        <input type="file" [(ngModel)]="product.pictureName"
+               class="form-control"
+               id="picture"
+               name="picture"
+               placeholder="Enter file"
+               required #picture="ngModel">
+      </div>
+      <div [hidden]="!picture.pristine" class="alert alert-danger">File is required</div>
+      <br/>
+      <button type="submit" [disabled]="!productForm.form.valid"
+              class="btn btn-info"> Submit
+      </button>
+      <!--      <button class="btn btn-info" (click)="addSubmit()">Submit</button>-->
+      <!--category.value, theme.value, title.value, creator.value, date.value, description.value,-->
+      <!--price.value, quantityTotal.value, quantityAvailable.value, quantityRented.value, picture.value-->
+    </form>
+  </div>
+</div>
+

@@ -1,0 +1,49 @@
+<nav>
+  <a routerLink="/products">Return</a>
+</nav>
+
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Category</th>
+        <th scope="col">Theme</th>
+        <th scope="col">Title</th>
+        <th scope="col">Creator</th>
+        <th scope="col">Date</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity Total</th>
+        <th scope="col">Quantity Available</th>
+        <th scope="col">Quantity Rented</th>
+        <th scope="col">File</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.id }}</td>
+        <td #category>{{ product.category }}</td>
+        <td #theme>{{ product.theme }}</td>
+        <td #title>{{ product.title }}</td>
+        <td #creator>{{ product.creator }}</td>
+        <td #date>{{ product.releaseDate }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.quantityTotal }}</td>
+        <td>{{ product.quantityAvailableToRent }}</td>
+        <td>{{ product.quantityIsRenting }}</td>
+        <td>{{ product.pictureName }}</td>
+        <button (click)="editSubmit()">EDIT
+        </button>
+        <br>
+        <button>DELETE</button>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!--theme.value, category.value, title.value, creator.value, date.value, description.value,-->
+<!--price.value, quantityTotal.value, quantityAvailable.value, quantityRented.value, picture.value-->

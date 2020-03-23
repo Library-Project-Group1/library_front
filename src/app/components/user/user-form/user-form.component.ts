@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from '../../../service/user/user.service';
-import { User } from '../../../models/user/user';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {UserService} from '../../../service/user/user.service';
+import {User} from '../../../models/user/user';
 
 @Component({
   selector: 'app-user-form',
@@ -24,11 +24,12 @@ export class UserFormComponent implements OnInit {
 
 
   // TODO Tout ne fonctionne pas: vérifier que le submit fonctionne soit dans formulaire soit dans le
-  //  bouton submit à voir si la redirectionne fonctionne et si elle s'écrit bien comme ça dans le component et html
+  //  bouton submit à voir si la redirection fonctionne et si elle s'écrit bien comme ça dans le component et html
   onSubmit() {
     this.userService.createUser(this.user).subscribe((result => this.gotoUserList()),
-        error => console.error('There are an error!', error));
+      error => console.error('There are an error!', error));
   }
+
   gotoUserList() {
     this.router.navigate(['../allUsers']);
   }

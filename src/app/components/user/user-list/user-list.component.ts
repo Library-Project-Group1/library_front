@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { User } from '../../../models/user/user';
-import { UserService } from '../../../service/user/user.service';
+import {Component, OnInit, Input} from '@angular/core';
+import {User} from '../../../models/user/user';
+import {UserService} from '../../../service/user/user.service';
 import {Observable} from 'rxjs/Observable';
 
 @Component({
@@ -17,10 +17,8 @@ export class UserListComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.userService.findAllUsers().subscribe((users => this.users = users),
       error => console.error('There are an error!', error));
-
   }
 
 }

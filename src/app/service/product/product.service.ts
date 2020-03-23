@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { Product } from '../../models/product/product';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import {Injectable} from '@angular/core';
+import {Product} from '../../models/product/product';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
 
 
 @Injectable({
@@ -10,8 +10,12 @@ import { Observable } from 'rxjs/Observable';
 export class ProductService {
 
   private productsUrl = 'http://localhost:8080/apiProducts/';
+  httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   public findAllProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.productsUrl + 'allProducts');
@@ -22,19 +26,19 @@ export class ProductService {
   }
 
   public deleteProductById(productID: number) {
-    return this.http.delete<Product>(this.productsUrl + '/deleteProduct/' + productID);
+    return this.http.delete<Product>(this.productsUrl + '/deleteProduct/' + productID, this.httpOptions);
   }
 
   public updateProductById(product: Product) {
-    return this.http.put<Product>(this.productsUrl + '/product/' + product.id + '/editProduct', product, null);
+    return this.http.put<Product>(this.productsUrl + '/product/' + product.id + '/editProduct', product, this.httpOptions);
   }
 
   // TODO à combiner avec celle du dessus (idem restController)
   public updateStockProductById(product: Product) {
-    return this.http.put<Product>(this.productsUrl + '/product/' + product.id + '/editStockProduct', product, null);
+    return this.http.put<Product>(this.productsUrl + '/product/' + product.id + '/editStockProduct', product, this.httpOptions);
   }
 
   public createProduct(product: Product) {
-    return this.http.post<Product>(this.productsUrl + '/createProduct', product, null);
+    return this.http.post<Product>(this.productsUrl + '/createProduct', product, this.httpOptions);
   }
 }
