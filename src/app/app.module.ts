@@ -4,13 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule } from '@angular/forms';
-import { UserComponent } from './components/user/user/user.component';
+import { UserComponent} from './components/user/user/user.component';
 import { UserService } from './service/user/user.service';
 import { UserListComponent } from './components/user/user-list/user-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserFormComponent } from './components/user/user-form/user-form.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,8 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule.forRoot()
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
