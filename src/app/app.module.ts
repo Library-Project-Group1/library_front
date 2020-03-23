@@ -10,6 +10,7 @@ import { UserListComponent } from './components/user/user-list/user-list.compone
 import { AppRoutingModule } from './app-routing.module';
 import { UserFormComponent } from './components/user/user-form/user-form.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { ThemeFormComponent } from './components/theme/theme-form/theme-form.component';
 
 
 @NgModule({
@@ -18,8 +19,9 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
     UserListComponent,
     UserComponent,
     UserFormComponent,
-    AdminHomeComponent
-  ],
+    AdminHomeComponent,
+    ThemeFormComponent,
+    ],
   imports: [
     BrowserModule,
     FormsModule,
