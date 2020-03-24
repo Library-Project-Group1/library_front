@@ -15,6 +15,11 @@ export class ProductListComponent implements OnInit {
   @Input()
   products: Product[];
 
+  @Input()
+  product: Product;
+
+  // productId: number;
+
   constructor(private productService: ProductService) {
   }
 
@@ -26,5 +31,10 @@ export class ProductListComponent implements OnInit {
   public onDelete(productId: number) {
     this.productService.deleteProductById(productId).subscribe((result => this.ngOnInit()),
       error => console.error('There are an error', error));
+  }
+
+  ngOnDestroy(productId: number) {
+    this.productService.findProductById(productId).subscribe((product => this.productService.product = product),
+        error => console.error('There are n error', error));
   }
 }

@@ -1,1 +1,41 @@
-<p>product-edit works!</p>
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Category</th>
+        <th scope="col">Theme</th>
+        <th scope="col">Title</th>
+        <th scope="col">Creator</th>
+        <th scope="col">Date</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity Total</th>
+        <th scope="col">Quantity Available</th>
+        <th scope="col">Quantity Rented</th>
+        <th scope="col">File</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngIf="product">
+        <td>{{ product.id }}</td>
+        <td #category>{{ product.category.name }}</td>
+        <td #theme>{{ product.theme.name }}</td>
+        <td #title>{{ product.title }}</td>
+        <td #creator>{{ product.creator }}</td>
+        <td #date>{{ product.releaseDate }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.quantityTotal }}</td>
+        <td>{{ product.quantityAvailableToRent }}</td>
+        <td>{{ product.quantityIsRenting }}</td>
+        <td>{{ product.pictureName }}</td>
+<!--        <button (click)="ngOnDestroy()" [routerLink]="['edit',product.id]">EDIT</button>-->
+<!--        <br>-->
+<!--        <button (click)="onDelete(product.id)">DELETE</button>-->
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

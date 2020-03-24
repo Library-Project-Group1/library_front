@@ -1,6 +1,6 @@
-<nav>
-  <a routerLink="/products">Return</a>
-</nav>
+<!--<nav>-->
+<!--  <a routerLink="/products">Return</a>-->
+<!--</nav>-->
 
 <div class="card my-5">
   <div class="card-body">
@@ -35,7 +35,7 @@
         <td>{{ product.quantityAvailableToRent }}</td>
         <td>{{ product.quantityIsRenting }}</td>
         <td>{{ product.pictureName }}</td>
-        <button [routerLink]="['edit',product.id]">EDIT</button>
+        <button (click)="ngOnDestroy(product.id)" [routerLink]="['edit',product.id]">EDIT</button>
         <br>
         <button (click)="onDelete(product.id)">DELETE</button>
       </tr>

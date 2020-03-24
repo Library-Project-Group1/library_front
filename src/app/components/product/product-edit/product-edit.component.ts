@@ -9,19 +9,24 @@ import {ProductService} from '../../../service/product/product.service';
 })
 export class ProductEditComponent implements OnInit {
 
-  @Input()
+  // @Input()
   product: Product;
+
+  productId: number;
 
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
-    this.productService.findProductById(this.product.id).subscribe((product => this.product = product),
-      error => console.error('There are an error', error));
+    this.product = this.productService.product;
+    // this.onEdit(this.productId = this.productService.productId);
+    // this.productService.findProductById(this.productId).subscribe((product => this.product = product),
+    //      error => console.error('There are n error', error))
+
   }
 
 
   // onEdit(productId: number) {
-  //   this.productService.findProductById(productId).subscribe((result => this.ngOnInit()),
+  //   this.productService.findProductById(this.productId).subscribe((product => this.product = product),
   //     error => console.error('There are n error', error))
   // }
 
