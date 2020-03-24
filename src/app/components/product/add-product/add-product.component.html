@@ -20,7 +20,8 @@
 
 <div class="card my-5">
   <div class="card-body">
-    <form (ngSubmit)="addSubmit()" #productForm="ngForm">
+    <!--    (ngSubmit)="addSubmit()"-->
+    <form #productForm="ngForm">
       <div class="form-group">
         <label for="category">Categories :</label><br/>
         <select id="category" [(ngModel)]="categories"
@@ -139,8 +140,9 @@
       </div>
       <div [hidden]="!picture.pristine" class="alert alert-danger">File is required</div>
       <br/>
-      <button type="submit" [disabled]="!productForm.form.valid"
-              class="btn btn-info"> Submit
+      <button type="submit" class="btn btn-info"
+              [disabled]="!productForm.form.valid"
+              (click)="addProduct()"> Submit
       </button>
       <!--      <button class="btn btn-info" (click)="addSubmit()">Submit</button>-->
       <!--category.value, theme.value, title.value, creator.value, date.value, description.value,-->

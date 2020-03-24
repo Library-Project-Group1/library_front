@@ -34,6 +34,17 @@ export class AddProductComponent implements OnInit {
     this.router.navigate(['../allProducts']);
   }
 
+  addProduct(title: string): void {
+    title = title.trim();
+    if (!title) {
+      return;
+    }
+    this.productService.createProduct({title} as Product).subscribe(product => {
+      this.product = product;
+    });
+  }
+
+
   // addSubmit(category: Category,
   //           theme: Theme,
   //           title: string,
