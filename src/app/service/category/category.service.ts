@@ -22,15 +22,15 @@ export class CategoryService {
     return this.http.get<Category>(this.categoriesUrl + '/category/' + categoryId);
   }
 
-  public deleteCategoryById(categoryID: number) {
+  public deleteCategoryById(categoryID: number): Observable<Category> {
     return this.http.delete<Category>(this.categoriesUrl + '/deleteCategory/' + categoryID, this.httpOptions);
   }
 
-  public updateCategoryById(category: Category) {
+  public updateCategoryById(category: Category): Observable<Category> {
     return this.http.put<Category>(this.categoriesUrl + '/category/' + category.id + '/editCategory', category, this.httpOptions);
   }
 
-  public createCategory(category: Category) {
+  public createCategory(category: Category): Observable<Category> {
     return this.http.post<Category>(this.categoriesUrl + '/createCategory', category, this.httpOptions);
   }
 }

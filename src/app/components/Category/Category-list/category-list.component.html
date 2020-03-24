@@ -16,10 +16,10 @@
         <td> {{ category.id }}</td>
         <td> {{ category.name }}</td>
         <td (click)="onSelect(category)">
-          <a (click)="updateCategory(category)" class="btn btn-info">Edit</a>
+            <a (click)="updateCategory(category)" class="btn btn-success">Edit</a>
         </td>
         <td>
-          <a (click)="removeCategory(category)" class="btn btn-info">Delete</a>
+          <a (click)="removeCategory(category)" class="btn btn-success">Delete</a>
         </td>
       </tr>
       </tbody>
@@ -27,13 +27,15 @@
   </div>
 </div>
 <div *ngIf="selectedCategory">
-  <h2>{{selectedCategory.name | uppercase}} Details</h2>
+  <h2>{{selectedCategory.name | uppercase}}</h2>
     <div><span>id: </span>{{selectedCategory.id}}</div>
-      <div>
-        <label>Name:
-          <input [(ngModel)]="selectedCategory.name" placeholder="name"/>
-        </label>
-      </div>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Actual category name : {{ selectedCategory.name}}</label>
+      <input type="text" formControlName="name" placeholder="New category name...." name="name" class="form-control" id="name">
+    </div>
+    <button class="btn btn-success">Update</button>
+  </form>
 </div>
 <div>
   <form>

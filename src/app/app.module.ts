@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import {FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UserComponent} from './components/user/user/user.component';
 import { UserService } from './service/user/user.service';
 import { UserListComponent } from './components/user/user-list/user-list.component';
@@ -31,10 +31,10 @@ import { CategoryListComponent } from './components/Category/Category-list/categ
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
