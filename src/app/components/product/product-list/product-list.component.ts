@@ -22,4 +22,13 @@ export class ProductListComponent implements OnInit {
       error => console.error('There are an error', error));
   }
 
+  onDelete(productId: number) {
+    this.productService.deleteProductById(productId).subscribe((result => this.ngOnInit()),
+      error => console.error('There are an error', error));
+  }
+
+  onEdit(productId: number) {
+    this.productService.findProductById(productId).subscribe((result => this.ngOnInit()),
+      error => console.error('There are n error', error))
+  }
 }

@@ -24,8 +24,8 @@
       <tbody>
       <tr *ngFor="let product of products">
         <td>{{ product.id }}</td>
-        <td #category>{{ product.category }}</td>
-        <td #theme>{{ product.theme }}</td>
+        <td #category>{{ product.category.name }}</td>
+        <td #theme>{{ product.theme.name }}</td>
         <td #title>{{ product.title }}</td>
         <td #creator>{{ product.creator }}</td>
         <td #date>{{ product.releaseDate }}</td>
@@ -35,15 +35,17 @@
         <td>{{ product.quantityAvailableToRent }}</td>
         <td>{{ product.quantityIsRenting }}</td>
         <td>{{ product.pictureName }}</td>
-<!--        <button (click)="editSubmit()">EDIT-->
+<!--        <button>-->
+<!--        <a [routerLink]="['products/listProducts/edit',product.id]">EDIT</a>-->
 <!--        </button>-->
         <br>
-        <button>DELETE</button>
+        <button (click)="onDelete(product.id)">DELETE</button>
       </tr>
       </tbody>
     </table>
   </div>
 </div>
+<router-outlet></router-outlet>
 
 <!--theme.value, category.value, title.value, creator.value, date.value, description.value,-->
 <!--price.value, quantityTotal.value, quantityAvailable.value, quantityRented.value, picture.value-->
