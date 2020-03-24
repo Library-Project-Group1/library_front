@@ -31,7 +31,7 @@ import { ProductComponent } from './components/product/product/product.component
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
     NgbModule
   ],
   providers: [UserService],
