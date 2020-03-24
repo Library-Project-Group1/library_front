@@ -34,7 +34,7 @@ import { ProductEditComponent } from './components/product/product-edit/product-
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    NgbModule
+    // NgbModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
