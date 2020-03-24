@@ -19,18 +19,18 @@ export class ThemeService {
   }
 
   public findThemeById(themeId: number): Observable<Theme> {
-    return this.http.get<Theme>(this.themesUrl + '/theme/' + themeId);
+    return this.http.get<Theme>(this.themesUrl + 'theme/' + themeId);
   }
 
   public deleteThemeById(themeID: number) {
-    return this.http.delete<Theme>(this.themesUrl + '/deleteTheme/' + themeID, this.httpOptions);
+    return this.http.delete<Theme>(this.themesUrl + 'deleteTheme/' + themeID, this.httpOptions);
   }
 
-  public updateThemeById(theme: Theme): Observable<any> {
-    return this.http.put<Theme>(this.themesUrl + '/theme/' + theme.id + '/editTheme', theme, this.httpOptions);
+  public updateThemeById(theme: Theme): Observable<void> {
+    return this.http.put<void>(`${this.themesUrl}edit/${theme.id}/editTheme`, theme, this.httpOptions);
   }
 
   public createTheme(theme: Theme) {
-    return this.http.post<Theme>(this.themesUrl + '/createTheme', theme, this.httpOptions);
+    return this.http.post<Theme>(this.themesUrl + 'createTheme', theme, this.httpOptions);
   }
 }

@@ -5,12 +5,17 @@
     <a routerLink="/theme/{{theme.id}}/editTheme">
       <span class="badge">{{theme.id}}</span> {{theme.name}}
     </a>
-    <button class="edit" title="edit"
-            (click)="editSubmit(theme)">edit
-    </button>
     <button class="delete" title="delete theme"
             (click)="deleteSubmit(theme)">x
     </button>
+
+    <div>
+      <label>name:
+        <input [(ngModel)]="theme.name" placeholder="name"/>
+      </label>
+      <button (click)="save(theme)">save</button>
+    </div>
+
   </li>
 </ul>
 <div>

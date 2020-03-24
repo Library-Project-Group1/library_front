@@ -15,10 +15,12 @@ export class ThemeFormComponent implements OnInit {
   themes: Theme[];
 
 
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private themeService: ThemeService
+    private themeService: ThemeService,
+
   ) { }
 
   ngOnInit(): void {
@@ -30,9 +32,10 @@ export class ThemeFormComponent implements OnInit {
       error => console.error('There are an error !', error));
   }
 
-  editSubmit(theme: Theme) {
+  save(theme: Theme) {
     this.themeService.updateThemeById(theme).subscribe();
   }
+
 
   deleteSubmit(theme: Theme) {
     this.themeService.deleteThemeById(theme.id).subscribe();
