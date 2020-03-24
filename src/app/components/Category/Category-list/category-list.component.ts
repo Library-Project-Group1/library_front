@@ -14,6 +14,7 @@ export class CategoryListComponent implements OnInit {
   @Input()
   categories: Category[];
   category: Category;
+  selectedCategory: Category;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,26 +23,33 @@ export class CategoryListComponent implements OnInit {
   ) {
   }
 
+  onSelect(category: Category): void {
+    this.selectedCategory = category;
+  }
+
   ngOnInit(): void {
     this.categoryService.findAllCategories().subscribe((categories => this.categories = categories),
       error1 => console.error('There are an error!', error1));
   }
+
   removeCategory(category: Category) {
     this.categoryService.deleteCategoryById(category.id).subscribe();
   }
+
   addCategory(name: string): void {
     name = name.trim();
-    if (!name) {return; }
+    if (!name) {
+      return;
+    }
     this.categoryService.createCategory({name} as Category)
       .subscribe(category => {
         this.categories.push(category);
       });
   }
-  editCategory() {
-    this.categoryService.updateCategoryById(this.category).subscribe(result => this.goToEditCategory()),
-      console.error('There are an error!', error);
-  }
-  goToEditCategory() {
-    this.router.navigate(['../category/{id}/editCategory']);
+
+  updateCategory(category: Category) {
+    this.categoryService.updateCategoryById(category).subscribe(newCategory => {
+      this.category = newCategory;
+    });
   }
 }
