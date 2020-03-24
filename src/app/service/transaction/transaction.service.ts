@@ -31,6 +31,6 @@ export class TransactionService {
   }
 
   public findAllTransactions(): Observable<Transaction[]> {
-    return this.http.get<Transaction[]>(this.transactionsUrl + '/allTransaction');
+    return this.http.get<Transaction[]>(this.transactionsUrl + 'allTransactions');
   }
 }

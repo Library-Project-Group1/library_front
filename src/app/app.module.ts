@@ -9,8 +9,9 @@ import { UserListComponent } from './components/user/user-list/user-list.compone
 import { AppRoutingModule } from './app-routing.module';
 import { UserFormComponent } from './components/user/user-form/user-form.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
-import { TransactionComponent } from './components/transaction/transaction.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { TransactionComponent } from './components/transaction/transaction/transaction.component';
+import { TransactionListComponent } from './components/transaction/transaction-list/transaction-list.component';
+// import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -19,14 +20,15 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     UserComponent,
     UserFormComponent,
     AdminHomeComponent,
-    TransactionComponent
+    TransactionComponent,
+    TransactionListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    NgbModule
+    // NgbModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
