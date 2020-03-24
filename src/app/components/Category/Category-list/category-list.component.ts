@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, HostListener} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {Category} from '../../../models/category/category';
 import {CategoryService} from '../../../service/category/category.service';
@@ -36,7 +36,13 @@ export class CategoryListComponent implements OnInit {
     this.categoryService.deleteCategoryById(category.id).subscribe();
   }
 
-  addCategory(name: string): void {
+  // @HostListener('document:keypress', ['$event'])
+  // handleKeyboardEvent(event: KeyboardEvent) {
+  //   if (event.code === 'Enter' && this.category.name != null) {
+  //     this.addCategory(this.category.name);
+  //   }
+  // }
+  createCategory(name: string): void {
     name = name.trim();
     if (!name) {
       return;
@@ -44,6 +50,7 @@ export class CategoryListComponent implements OnInit {
     this.categoryService.createCategory({name} as Category)
       .subscribe(category => {
         this.categories.push(category);
+        alert('Category created successfully !');
       });
   }
 

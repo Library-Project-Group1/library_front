@@ -36,11 +36,13 @@
       </div>
 </div>
 <div>
+  <form>
   <label>New Category name:
-    <input #newCategoryName />
+    <input #newCategoryName/>
   </label>
-  <button (click)="addCategory(newCategoryName.value); newCategoryName.value=''">
-    add
+  <button (click)="createCategory(newCategoryName.value); newCategoryName.value=''">
+    Add
   </button>
+  </form>
 </div>
 <router-outlet></router-outlet>
