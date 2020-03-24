@@ -35,9 +35,7 @@
         <td>{{ product.quantityAvailableToRent }}</td>
         <td>{{ product.quantityIsRenting }}</td>
         <td>{{ product.pictureName }}</td>
-<!--        <button>-->
-<!--        <a [routerLink]="['products/listProducts/edit',product.id]">EDIT</a>-->
-<!--        </button>-->
+        <button [routerLink]="['edit',product.id]">EDIT</button>
         <br>
         <button (click)="onDelete(product.id)">DELETE</button>
       </tr>

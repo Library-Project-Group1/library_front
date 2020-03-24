@@ -3,6 +3,7 @@ import {Product} from '../../../models/product/product';
 import {ProductService} from '../../../service/product/product.service';
 import {Category} from '../../../models/category/category';
 import {Theme} from '../../../models/theme/theme';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -22,13 +23,8 @@ export class ProductListComponent implements OnInit {
       error => console.error('There are an error', error));
   }
 
-  onDelete(productId: number) {
+  public onDelete(productId: number) {
     this.productService.deleteProductById(productId).subscribe((result => this.ngOnInit()),
       error => console.error('There are an error', error));
-  }
-
-  onEdit(productId: number) {
-    this.productService.findProductById(productId).subscribe((result => this.ngOnInit()),
-      error => console.error('There are n error', error))
   }
 }
