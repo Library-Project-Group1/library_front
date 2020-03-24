@@ -14,6 +14,7 @@ import {AdminHomeComponent} from './components/admin/admin-home/admin-home.compo
 import {AddProductComponent} from './components/product/add-product/add-product.component';
 import {ProductListComponent} from './components/product/product-list/product-list.component';
 import { ProductComponent } from './components/product/product/product.component';
+import { ProductEditComponent } from './components/product/product-edit/product-edit.component';
 
 @NgModule({
   declarations: [
@@ -24,19 +25,19 @@ import { ProductComponent } from './components/product/product/product.component
     AdminHomeComponent,
     AddProductComponent,
     ProductListComponent,
-    ProductComponent
+    ProductComponent,
+    ProductEditComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule
-    // NgbModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
 }
-
