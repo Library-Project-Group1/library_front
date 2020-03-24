@@ -3,8 +3,6 @@ import {Product} from '../../models/product/product';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 
-import {HttpResponse, HttpRequest} from '@angular/common/http';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -39,9 +37,7 @@ export class ProductService {
     return this.http.put<Product>(this.productsUrl + '/product/' + product.id + '/editStockProduct', product, this.httpOptions);
   }
 
-  public createProduct(product: Product): Observable<Product> {
-    const headers = new Headers({'Content-Type': 'application/json'});
-    // const options = new Request({headers});
+  public createProduct(product: Product) {
     return this.http.post<Product>(this.productsUrl + '/createProduct', product, this.httpOptions);
   }
 }

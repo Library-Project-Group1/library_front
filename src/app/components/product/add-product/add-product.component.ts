@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from '../../../models/product/product';
 import {ProductService} from '../../../service/product/product.service';
-// import {FormGroup, FormControl} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Theme} from '../../../models/theme/theme';
 import {Category} from '../../../models/category/category';
@@ -25,7 +24,7 @@ export class AddProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addSubmit() {
+  addProduct(product: Product) {
     this.productService.createProduct(this.product).subscribe((result => this.goToProductList()),
       error => console.error('There are an error!', error));
   }
@@ -34,44 +33,4 @@ export class AddProductComponent implements OnInit {
     this.router.navigate(['../allProducts']);
   }
 
-  addProduct(title: string): void {
-    title = title.trim();
-    if (!title) {
-      return;
-    }
-    this.productService.createProduct({title} as Product).subscribe(product => {
-      this.product = product;
-    });
-  }
-
-
-  // addSubmit(category: Category,
-  //           theme: Theme,
-  //           title: string,
-  //           creator: string,
-  //           releaseDate: Date,
-  //           description: string,
-  //           price: number,
-  //           quantityTotal: number,
-  //           quantityAvailableToRent: number,
-  //           quantityIsRenting: number,
-  //           pictureName: string): void {
-  //   title = title.trim();
-  //   if (!title) {
-  //     return;
-  //   }
-  //   this.productService.createProduct({
-  //     theme,
-  //     category,
-  //     title,
-  //     creator,
-  //     releaseDate,
-  //     description,
-  //     price,
-  //     quantityTotal,
-  //     quantityAvailableToRent,
-  //     quantityIsRenting,
-  //     pictureName
-  //   } as Product).subscribe(product => this.product = product);
-  // }
 }

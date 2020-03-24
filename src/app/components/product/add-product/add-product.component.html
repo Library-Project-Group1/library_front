@@ -27,7 +27,7 @@
         <select id="category" [(ngModel)]="categories"
                 name="category"
                 required #category="ngModel">
-          <option *ngFor="let category of categories" [value]="category"> {{category}} </option>
+          <option *ngFor="let category of categories" [value]="category"> {{category.name}} </option>
         </select>
       </div>
       <div [hidden]="!category.pristine" class="alert alert-danger">Category is required</div>
@@ -37,7 +37,7 @@
         <select id="theme" [(ngModel)]="themes"
                 name="theme"
                 required #theme="ngModel">
-          <option *ngFor="let theme of themes" [value]="theme"> {{theme}} </option>
+          <option *ngFor="let theme of themes" [value]="theme"> {{theme.name}} </option>
         </select>
       </div>
       <div [hidden]="!theme.pristine" class="alert alert-danger">Theme is required</div>
@@ -140,10 +140,10 @@
       </div>
       <div [hidden]="!picture.pristine" class="alert alert-danger">File is required</div>
       <br/>
-<!--      <button type="submit" class="btn btn-info"-->
-<!--              [disabled]="!productForm.form.valid"-->
-<!--              (click)="addProduct()"> Submit-->
-<!--      </button>-->
+      <button type="submit" class="btn btn-info"
+              [disabled]="!productForm.form.valid"
+              (click)="addProduct(product)"> Submit
+      </button>
       <!--      <button class="btn btn-info" (click)="addSubmit()">Submit</button>-->
       <!--category.value, theme.value, title.value, creator.value, date.value, description.value,-->
       <!--price.value, quantityTotal.value, quantityAvailable.value, quantityRented.value, picture.value-->
