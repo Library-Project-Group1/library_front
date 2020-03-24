@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Theme} from '../../../models/theme/theme';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ThemeService} from '../../../service/theme/theme.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-theme-form',
@@ -20,6 +21,7 @@ export class ThemeFormComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private themeService: ThemeService,
+    private location: Location
 
   ) { }
 
@@ -32,10 +34,13 @@ export class ThemeFormComponent implements OnInit {
       error => console.error('There are an error !', error));
   }
 
-  save(theme: Theme) {
-    this.themeService.updateThemeById(theme).subscribe();
+  save() {
+    this.themeService.updateThemeById(this.theme).subscribe(() => this.goBack());
   }
 
+  goBack(): void {
+    this.location.back();
+  }
 
   deleteSubmit(theme: Theme) {
     this.themeService.deleteThemeById(theme.id).subscribe();
