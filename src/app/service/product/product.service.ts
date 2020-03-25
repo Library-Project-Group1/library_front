@@ -33,7 +33,7 @@ export class ProductService {
   }
 
   public updateProductById(product: Product) {
-    return this.http.put<Product>(this.productsUrl + 'product/' + product.id + '/editProduct', product, this.httpOptions);
+    return this.http.put<Product>(this.productsUrl + 'product/' + product.id + '/editProduct', product.price, this.httpOptions);
   }
 
   // TODO à combiner avec celle du dessus (idem restController)

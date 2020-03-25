@@ -14,7 +14,7 @@
         <th scope="col">Quantity Total</th>
         <th scope="col">Quantity Available</th>
         <th scope="col">Quantity Rented</th>
-        <th scope="col">File</th>
+<!--        <th scope="col">File</th>-->
       </tr>
       </thead>
       <tbody>
@@ -26,11 +26,14 @@
         <td #creator>{{ product.creator }}</td>
         <td #date>{{ product.releaseDate }}</td>
         <td>{{ product.description }}</td>
-        <td>{{ product.price }}</td>
-        <td>{{ product.quantityTotal }}</td>
+        <td> <input [(ngModel)]="product.price" placeholder="{{ product.price }}"/></td>
+        <td> <input [(ngModel)]="product.quantityTotal" placeholder="{{ product.quantityTotal }}"/> </td>
         <td>{{ product.quantityAvailableToRent }}</td>
         <td>{{ product.quantityIsRenting }}</td>
-        <td>{{ product.pictureName }}</td>
+<!--        <td>{{ product.pictureName }}</td>-->
+        <button (click)="save()">Save Update</button>
+        <br>
+        <button (click)="goBack()">Return list products</button>
 <!--        <button (click)="ngOnDestroy()" [routerLink]="['edit',product.id]">EDIT</button>-->
 <!--        <br>-->
 <!--        <button (click)="onDelete(product.id)">DELETE</button>-->
