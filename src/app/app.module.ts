@@ -21,6 +21,10 @@ import { CategoryComponent } from './components/Category/category/category.compo
 import { CategoryListComponent} from './components/Category/Category-list/category-list.component';
 import { CategoryCreateComponent} from './components/Category/category-create/category-create.component';
 import { ThemeCreateComponent } from './components/theme/theme-create/theme-create.component';
+import { ThemeComponent } from './components/theme/theme/theme.component';
+import { AddThemeComponent } from './components/theme/add-theme/add-theme.component';
+import { EditThemeComponent } from './components/theme/edit-theme/edit-theme.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +44,10 @@ import { ThemeCreateComponent } from './components/theme/theme-create/theme-crea
     ThemeCreateComponent,
     TransactionComponent,
     TransactionListComponent,
+    ThemeComponent,
+    AddThemeComponent,
+    EditThemeComponent,
+    MessagesComponent
   ],
 
   imports: [

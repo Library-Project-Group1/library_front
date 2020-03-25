@@ -14,6 +14,7 @@ import {CategoryListComponent} from './components/Category/Category-list/categor
 import {ThemeFormComponent} from './components/theme/theme-form/theme-form.component';
 import {CategoryCreateComponent} from './components/Category/category-create/category-create.component';
 import {ThemeCreateComponent} from './components/theme/theme-create/theme-create.component';
+import {EditThemeComponent} from './components/theme/edit-theme/edit-theme.component';
 
 
 const routes: Routes = [
@@ -31,7 +32,8 @@ const routes: Routes = [
   {path: 'categories/listCategories', component: CategoryListComponent},
   {path: 'categories/createCategory', component: CategoryCreateComponent},
   {path: 'themes', component: ThemeFormComponent},
-  {path: 'themes/createTheme', component: ThemeCreateComponent}
+  {path: 'themes/createTheme', component: ThemeCreateComponent},
+  { path: 'theme/:id', component: EditThemeComponent}
 ];
 
 @NgModule({

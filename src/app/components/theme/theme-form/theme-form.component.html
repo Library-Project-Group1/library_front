@@ -1,30 +1,25 @@
 <h2>Themes</h2>
+<div>
+  <label>Theme name:
+    <input #themeName />
+  </label>
+  <button (click)="addSubmit(themeName.value); themeName.value=''">
+    add
+  </button>
+</div>
 <ul class="themes">
   <li *ngFor="let theme of themes">
 
-
+      <a routerLink="/theme/{{theme.id}}">
       <span>{{theme.id}}</span> {{theme.name}}
+      </a>
+
 
     <button class="delete" title="delete theme"
             (click)="deleteSubmit(theme)">x
     </button>
 
-    <div>
-      <label>name:
-        <input [(ngModel)]="theme.name"
-               placeholder="name"/>
-      </label>
-      <button (click)="save(theme)">save</button>
-    </div>
 
   </li>
 </ul>
-<div>
-      <label>Theme name:
-        <input #themeName />
-      </label>
-  <button (click)="addSubmit(themeName.value); themeName.value=''">
-    add
-  </button>
-</div>
 <router-outlet></router-outlet>
