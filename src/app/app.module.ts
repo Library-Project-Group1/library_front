@@ -30,7 +30,7 @@ import { CategoryCreateComponent} from './components/Category/category-create/ca
     AddProductComponent,
     ProductListComponent,
     ProductComponent,
-    ProductEditComponent
+    ProductEditComponent,
     ThemeFormComponent,
     CategoryComponent,
     CategoryListComponent,
