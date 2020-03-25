@@ -54,17 +54,18 @@ export class CategoryListComponent implements OnInit {
     }
     this.categoryService.createCategory({name} as Category)
       .subscribe(category => {
-        this.categories.push(category);
+        this.categories.push(this.category);
         alert('Category successfully created !');
         this.router.navigate(['categories/listCategories']);
       });
   }
+}
 
-  updateCategory(category: Category) {
-    this.categoryService.updateCategoryById(category).subscribe(newCategory => {
-      this.category = newCategory;
-    });
-  }
+  // updateCategory(category: Category) {
+  //   this.categoryService.updateCategoryById(category).subscribe(newCategory => {
+  //     newCategory = this.category ;
+  //   });
+  // }
 
   // updateCategory(category: Category) {
   //   this.editForm = this.formBuilder.group({
@@ -90,4 +91,3 @@ export class CategoryListComponent implements OnInit {
   //         }
   //       });
   // }
-}
