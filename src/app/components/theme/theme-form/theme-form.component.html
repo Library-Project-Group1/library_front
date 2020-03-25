@@ -1,25 +1,39 @@
-<h2>Themes</h2>
-<div>
-  <label>Theme name:
-    <input #themeName />
-  </label>
-  <button (click)="addSubmit(themeName.value); themeName.value=''">
-    add
-  </button>
+<app-category></app-category>
+<div class="card my-5">
+  <div class="card-body">
+    <p>THEMES LIST</p>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Edit Theme</th>
+        <th scope="col">Delete Theme</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let theme of themes">
+        <td> {{ theme.id }}</td>
+        <td> {{ theme.name }}</td>
+        <td>
+          <a [routerLink]="['edit',theme.id]" class="btn btn-success">Edit</a>
+        </td>
+        <td>
+          <a (click)="deleteSubmit(theme)" class="btn btn-success">Delete</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-<ul class="themes">
-  <li *ngFor="let theme of themes">
-
-      <a routerLink="/theme/{{theme.id}}">
-      <span>{{theme.id}}</span> {{theme.name}}
-      </a>
-
-
-    <button class="delete" title="delete theme"
-            (click)="deleteSubmit(theme)">x
+<div>
+  <form>
+    <label>New Theme name:
+      <input #newThemeName/>
+    </label>
+    <button (click)="addSubmit(newThemeName.value); newThemeName.value=''">
+      Add
     </button>
-
-
-  </li>
-</ul>
+  </form>
+</div>
 <router-outlet></router-outlet>

@@ -30,13 +30,14 @@ export class CategoryCreateComponent implements OnInit {
       name: ['', Validators.required],
     });
   }
+
   createCategory(name: string): void {
     name = name.trim();
     if (!name) {
       return;
     }
     this.categoryService.createCategory({name} as Category).subscribe(category => {
-      this.categories.push(category);
+      this.categories.push(this.category);
       alert('Category successfully created !');
       this.router.navigate(['products/createProduct']);
     });

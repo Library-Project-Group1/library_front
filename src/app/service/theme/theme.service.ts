@@ -34,10 +34,8 @@ export class ThemeService {
     return this.http.delete<Theme>(this.themesUrl + 'deleteTheme/' + themeID, this.httpOptions);
   }
 
-  public updateThemeById(theme: Theme): Observable<any> {
-    return this.http.put(`${this.themesUrl}theme/${theme.id}/editTheme`, theme, this.httpOptions).pipe(
-      tap(_ => this.log(`updated theme id=${theme.id}`))
-    );
+  public updateThemeById(theme: Theme) {
+    return this.http.put<void>(this.themesUrl + '/theme/' + theme.id + '/editTheme', theme, this.httpOptions);
   }
 
   public createTheme(theme: Theme) {

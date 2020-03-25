@@ -17,19 +17,11 @@ export class CategoryListComponent implements OnInit {
   @Input()
   categories: Category[];
   category: Category;
-  selectedCategory: Category;
-  editForm: FormGroup;
 
   constructor(
     private router: Router,
     private categoryService: CategoryService,
-    private formBuilder: FormBuilder
-  ) {
-  }
-
-  onSelect(category: Category): void {
-    this.selectedCategory = category;
-  }
+  ){ }
 
   ngOnInit(): void {
     this.categoryService.findAllCategories().subscribe((categories => this.categories = categories),
@@ -41,12 +33,6 @@ export class CategoryListComponent implements OnInit {
     alert('Category successfully deleted!');
   }
 
-  // @HostListener('document:keypress', ['$event'])
-  // handleKeyboardEvent(event: KeyboardEvent) {
-  //   if (event.code === 'Enter' && this.category.name != null) {
-  //     this.addCategory(this.category.name);
-  //   }
-  // }
   createCategory(name: string): void {
     name = name.trim();
     if (!name) {
@@ -61,33 +47,4 @@ export class CategoryListComponent implements OnInit {
   }
 }
 
-  // updateCategory(category: Category) {
-  //   this.categoryService.updateCategoryById(category).subscribe(newCategory => {
-  //     newCategory = this.category ;
-  //   });
-  // }
-
-  // updateCategory(category: Category) {
-  //   this.editForm = this.formBuilder.group({
-  //     id: [''],
-  //     name: ['', Validators.required],
-  //   });
-  //   this.categoryService.findCategoryById(category.id)
-  //     .subscribe(() => {
-  //       this.editForm.setValue(name);
-  //     });
-  // }
-  //
-  // onSubmit() {
-  //   this.categoryService.updateCategoryById(this.editForm.value)
-  //     .pipe(first())
-  //     .subscribe(
-  //       name => {
-  //         if (name != null) {
-  //           alert('Category successfully updated !');
-  //           this.router.navigate(['list-user']);
-  //         } else {
-  //           alert('Category has name = null');
-  //         }
-  //       });
-  // }
+}
