@@ -34,12 +34,8 @@ export class ThemeFormComponent implements OnInit {
       error => console.error('There are an error !', error));
   }
 
-  save() {
-    this.themeService.updateThemeById(this.theme).subscribe(() => this.goBack());
-  }
-
-  goBack(): void {
-    this.location.back();
+  save(theme: Theme) {
+    this.themeService.updateThemeById(theme).subscribe();
   }
 
   deleteSubmit(theme: Theme) {
