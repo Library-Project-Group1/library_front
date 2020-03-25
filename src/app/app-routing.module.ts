@@ -12,6 +12,7 @@ import {CategoryComponent} from './components/Category/category/category.compone
 import {CategoryListComponent} from './components/Category/Category-list/category-list.component';
 import {ThemeFormComponent} from './components/theme/theme-form/theme-form.component';
 import {CategoryCreateComponent} from './components/Category/category-create/category-create.component';
+import {ThemeCreateComponent} from './components/theme/theme-create/theme-create.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/admin-home', pathMatch: 'full' },
@@ -27,7 +28,8 @@ const routes: Routes = [
   {path: 'categories', component: CategoryComponent },
   {path: 'categories/listCategories', component: CategoryListComponent},
   {path: 'categories/createCategory', component: CategoryCreateComponent},
-  {path: 'themes', component: ThemeFormComponent}
+  {path: 'themes', component: ThemeFormComponent},
+  {path: 'themes/createTheme', component: ThemeCreateComponent}
 ];
 
 @NgModule({
