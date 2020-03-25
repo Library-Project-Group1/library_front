@@ -4,6 +4,8 @@ import {ProductService} from '../../../service/product/product.service';
 import {Router} from '@angular/router';
 import {Theme} from '../../../models/theme/theme';
 import {Category} from '../../../models/category/category';
+import {Validators} from '@angular/forms';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-add-product',
@@ -13,20 +15,32 @@ import {Category} from '../../../models/category/category';
 export class AddProductComponent implements OnInit {
 
   product: Product;
+  products: Product[];
   themes: Theme[];
   categories: Category[];
+  fg: FormGroup;
 
   constructor(
     private productService: ProductService,
-    private router: Router) {
+    private router: Router,
+    private fb: FormBuilder) {
+    this.createForm();
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   addProduct(product: Product) {
-    this.productService.createProduct(this.product).subscribe((result => this.goToProductList()),
-      error => console.error('There are an error!', error));
+    this.productService.createProduct(this.product).subscribe(result => {
+      this.products.push(product);
+      this.goToProductList();
+    });
+  }
+
+  createForm() {
+    this.fg = this.fb.group({
+      prod: ['', Validators.required],
+    });
   }
 
   goToProductList() {

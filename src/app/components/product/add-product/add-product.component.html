@@ -6,29 +6,19 @@
   <h5>Add a new Category ?</h5>
   <button routerLink="/categories/createCategory" class="btn btn-primary">Yes I need a new category</button>
 </div>
+<br>
 <div>
   <h5>Add a new Theme ?</h5>
   <button routerLink="/themes/createTheme" class="btn btn-primary"> Yes I need a new theme</button>
 </div>
+<br>
 <h2>Add new product</h2>
-<!--<div>-->
-<!--  <label>Title: <input type="text" formControlName="title"></label>-->
-<!--  <label>Creator: <input type="text" formControlName="creator"></label>-->
-<!--  <label>Date: <input type="date" formControlName="releaseDate"></label>-->
-<!--  <label>Description: <input type="text" formControlName="description"></label>-->
-<!--  <label>Quantity Total: <input type="text" formControlName="quantityTotal"></label>-->
-<!--  <label>Quantity available: <input type="text" formControlName="quantityAvailableToRent"></label>-->
-<!--  <label>Quantity rented: <input type="text" formControlName="quantityIsRenting"></label>-->
-<!--  <label>Price: <input type="text" formControlName="price"></label>-->
-<!--  <label>Picture: <input type="text" formControlName="pictureName"></label>-->
-<!--  <button></button>-->
-<!--</div>-->
+
 <!-- TODO VALIDATORS AND PATTERN-->
 
 <div class="card my-5">
   <div class="card-body">
-    <!--    (ngSubmit)="addSubmit()"-->
-    <form #productForm="ngForm">
+    <form [formGroup]="fg" novalidate>
       <div class="form-group">
         <label for="category">Categories :</label><br/>
         <select id="category" [(ngModel)]="categories"
@@ -37,7 +27,7 @@
           <option *ngFor="let category of categories" [value]="category"> {{category.name}} </option>
         </select>
       </div>
-      <div [hidden]="!category.pristine" class="alert alert-danger">Category is required</div>
+<!--      <div [hidden]="!category.pristine" class="alert alert-danger">Category is required</div>-->
 
       <div class="form-group">
         <label for="theme">Themes :</label><br/>
@@ -47,18 +37,22 @@
           <option *ngFor="let theme of themes" [value]="theme"> {{theme.name}} </option>
         </select>
       </div>
-      <div [hidden]="!theme.pristine" class="alert alert-danger">Theme is required</div>
+<!--      <div [hidden]="!theme.pristine" class="alert alert-danger">Theme is required</div>-->
 
+<!--      TODO: la div title est diff des autres parametres car c'etait un test... -->
       <div class="form-group">
-        <label for="title">Title :</label><br/>
-        <input type="text" [(ngModel)]="product.title"
+        <label class="col-md-4">Title :</label><br/>
+        <input type="text"
                class="form-control"
-               id="title"
-               name="title"
-               placeholder="Enter title"
-               required #title="ngModel">
+               formControlName="title"
+               placeholder="Enter title">
       </div>
-      <div [hidden]="!title.pristine" class="alert alert-danger">Title is required</div>
+      <div *ngIf="fg.controls[''].invalid && (fg.controls['title'].dirty || fg.controls['title'].touched)"
+           class="alert alert-danger">
+        <div *ngIf="fg.controls['title'].errors.required">Title is required</div>
+      </div>
+      <!--      <div [hidden]="!title.pristine" class="alert alert-danger">Title is required</div>-->
+
 
       <div class="form-group">
         <label for="creator">Creator :</label><br/>
@@ -69,7 +63,7 @@
                placeholder="Enter creator's name"
                required #creator="ngModel">
       </div>
-      <div [hidden]="!creator.pristine" class="alert alert-danger">Creator's name is required</div>
+<!--      <div [hidden]="!creator.pristine" class="alert alert-danger">Creator's name is required</div>-->
 
       <div class="form-group">
         <label for="date">Date :</label><br/>
@@ -79,7 +73,7 @@
                name="date"
                required #date="ngModel">
       </div>
-      <div [hidden]="!date.pristine" class="alert alert-danger">Date is required</div>
+<!--      <div [hidden]="!date.pristine" class="alert alert-danger">Date is required</div>-->
 
       <div class="form-group">
         <label for="creator">Description :</label><br/>
@@ -90,7 +84,7 @@
                placeholder="Enter description"
                required #description="ngModel">
       </div>
-      <div [hidden]="!description.pristine" class="alert alert-danger">Description is required</div>
+<!--      <div [hidden]="!description.pristine" class="alert alert-danger">Description is required</div>-->
 
       <div class="form-group">
         <label for="price">Price :</label><br/>
@@ -101,7 +95,7 @@
                placeholder="Enter price"
                required #price="ngModel">
       </div>
-      <div [hidden]="!price.pristine" class="alert alert-danger">Price is required</div>
+<!--      <div [hidden]="!price.pristine" class="alert alert-danger">Price is required</div>-->
 
       <div class="form-group">
         <label for="quantityTotal">Quantity Total :</label><br/>
@@ -112,7 +106,7 @@
                placeholder="Enter total quantity"
                required #quantityTotal="ngModel">
       </div>
-      <div [hidden]="!quantityTotal.pristine" class="alert alert-danger">Quantity is required</div>
+<!--      <div [hidden]="!quantityTotal.pristine" class="alert alert-danger">Quantity is required</div>-->
 
       <div class="form-group">
         <label for="quantityAvailable">Quantity Available :</label><br/>
@@ -123,7 +117,7 @@
                placeholder="Enter available quantity"
                required #quantityAvailable="ngModel">
       </div>
-      <div [hidden]="!quantityAvailable.pristine" class="alert alert-danger">Quantity is required</div>
+<!--      <div [hidden]="!quantityAvailable.pristine" class="alert alert-danger">Quantity is required</div>-->
 
       <div class="form-group">
         <label for="quantityRented">Quantity Rented :</label><br/>
@@ -132,9 +126,9 @@
                id="quantityRented"
                name="quantityRented"
                placeholder="Enter rented quantity"
-               required #quantityRented="ngModel">
+               #quantityRented>
       </div>
-      <div [hidden]="!quantityRented.pristine" class="alert alert-danger">Quantity is required</div>
+<!--      <div [hidden]="!quantityRented.pristine" class="alert alert-danger">Quantity is required</div>-->
 
       <div class="form-group">
         <label for="picture">File :</label><br/>
@@ -145,15 +139,14 @@
                placeholder="Enter file"
                required #picture="ngModel">
       </div>
-      <div [hidden]="!picture.pristine" class="alert alert-danger">File is required</div>
+<!--      <div [hidden]="!picture.pristine" class="alert alert-danger">File is required</div>-->
       <br/>
       <button type="submit" class="btn btn-info"
-              [disabled]="!productForm.form.valid"
-              (click)="addProduct(product)"> Submit
+              [disabled]="!fg.pristine || !fg.invalid"
+              (click)="addProduct(product)">
+        Submit
       </button>
-      <!--      <button class="btn btn-info" (click)="addSubmit()">Submit</button>-->
-      <!--category.value, theme.value, title.value, creator.value, date.value, description.value,-->
-      <!--price.value, quantityTotal.value, quantityAvailable.value, quantityRented.value, picture.value-->
     </form>
   </div>
 </div>
+<router-outlet></router-outlet>

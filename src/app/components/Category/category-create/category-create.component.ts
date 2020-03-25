@@ -30,6 +30,7 @@ export class CategoryCreateComponent implements OnInit {
       name: ['', Validators.required],
     });
   }
+
   createCategory(name: string): void {
     name = name.trim();
     if (!name) {
