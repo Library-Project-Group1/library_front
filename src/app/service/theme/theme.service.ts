@@ -4,6 +4,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import {tap} from 'rxjs/operators';
 import {map} from 'rxjs-compat/operator/map';
+import {MessageService} from '../message.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,11 @@ export class ThemeService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
-  constructor(private http: HttpClient) { }
+  private log(message: string) {
+    this.messageService.add(`ThemeService: ${message}`);
+  }
+
+  constructor(private http: HttpClient, private messageService: MessageService) { }
 
   public findAllThemes(): Observable<Theme[]> {
     return this.http.get<Theme[]>(this.themesUrl + 'allThemes');
@@ -30,7 +35,9 @@ export class ThemeService {
   }
 
   public updateThemeById(theme: Theme): Observable<any> {
-    return this.http.put(`${this.themesUrl}theme/${theme.id}/editTheme`, theme, this.httpOptions).pipe();
+    return this.http.put(`${this.themesUrl}theme/${theme.id}/editTheme`, theme, this.httpOptions).pipe(
+      tap(_ => this.log(`updated theme id=${theme.id}`))
+    );
   }
 
   public createTheme(theme: Theme) {

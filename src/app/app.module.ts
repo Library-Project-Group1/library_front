@@ -17,6 +17,7 @@ import { CategoryCreateComponent} from './components/Category/category-create/ca
 import { ThemeComponent } from './components/theme/theme/theme.component';
 import { AddThemeComponent } from './components/theme/add-theme/add-theme.component';
 import { EditThemeComponent } from './components/theme/edit-theme/edit-theme.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { EditThemeComponent } from './components/theme/edit-theme/edit-theme.com
     CategoryCreateComponent,
     ThemeComponent,
     AddThemeComponent,
-    EditThemeComponent
+    EditThemeComponent,
+    MessagesComponent
   ],
 
   imports: [
