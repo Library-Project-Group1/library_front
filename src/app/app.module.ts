@@ -15,6 +15,10 @@ import {AddProductComponent} from './components/product/add-product/add-product.
 import {ProductListComponent} from './components/product/product-list/product-list.component';
 import { ProductComponent } from './components/product/product/product.component';
 import { ProductEditComponent } from './components/product/product-edit/product-edit.component';
+import { ThemeFormComponent } from './components/theme/theme-form/theme-form.component';
+import { CategoryComponent } from './components/Category/category/category.component';
+import { CategoryListComponent} from './components/Category/Category-list/category-list.component';
+import { CategoryCreateComponent} from './components/Category/category-create/category-create.component';
 
 @NgModule({
   declarations: [
@@ -27,17 +31,21 @@ import { ProductEditComponent } from './components/product/product-edit/product-
     ProductListComponent,
     ProductComponent,
     ProductEditComponent
+    ThemeFormComponent,
+    CategoryComponent,
+    CategoryListComponent,
+    CategoryCreateComponent
   ],
+
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule,
-    // NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

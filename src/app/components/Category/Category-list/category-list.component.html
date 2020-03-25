@@ -1,0 +1,50 @@
+<app-category></app-category>
+<div class="card my-5">
+  <div class="card-body">
+    <p>CATEGORIES LIST</p>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Edit Category</th>
+        <th scope="col">Delete Category</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let category of categories">
+        <td> {{ category.id }}</td>
+        <td> {{ category.name }}</td>
+        <td (click)="onSelect(category)">
+            <a (click)="updateCategory(category)" class="btn btn-success">Edit</a>
+        </td>
+        <td>
+          <a (click)="removeCategory(category)" class="btn btn-success">Delete</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div *ngIf="selectedCategory">
+  <h2>{{selectedCategory.name | uppercase}}</h2>
+    <div><span>id: </span>{{selectedCategory.id}}</div>
+  <form [formGroup]="editForm">
+    <div class="form-group">
+      <label for="name">Actual category name : {{ selectedCategory.name}}</label>
+      <input type="text" formControlName="name" placeholder="New category name...." name="name" class="form-control" id="name">
+    </div>
+    <button class="btn btn-success">Update</button>
+  </form>
+</div>
+<div>
+  <form>
+  <label>New Category name:
+    <input #newCategoryName/>
+  </label>
+  <button (click)="createCategory(newCategoryName.value); newCategoryName.value=''">
+    Add
+  </button>
+  </form>
+</div>
+<router-outlet></router-outlet>

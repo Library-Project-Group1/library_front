@@ -11,13 +11,6 @@ import {Observable} from 'rxjs';
 })
 export class UserComponent implements OnInit {
 
-  // user: User = {
-  //   id: 1,
-  //   userName: "UnNom",
-  //   email: "unmailaupif@pif.com",
-  //   password: "pwsecret"
-  // };
-
   user: User;
 
   constructor(private userService: UserService) {
