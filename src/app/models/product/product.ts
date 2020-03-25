@@ -12,6 +12,7 @@ export class Product {
   quantityIsRenting: number;
   price: number;
   pictureName: string;
+  category: Category;
 
   category: Category;
   theme: Theme;

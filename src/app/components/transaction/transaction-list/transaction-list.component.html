@@ -1,0 +1,33 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <!--        <th scope="col">User Name</th>-->
+        <th scope="col">User</th>
+        <th scope="col">Product</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let transaction of transactions">
+        <td>{{transaction.id}}</td>
+        <td>{{transaction.user.email}}</td>
+        <td>{{transaction.product.title}}</td>
+        <button class="btn btn-info" (click)="onSelectTransaction(transaction)">Details</button>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div *ngIf="selectedTransaction">
+  <h2>Details of the Transaction n°{{selectedTransaction.id}})</h2>
+
+  <a>Category of Product: {{selectedTransaction.product.category.name}}</a><br>
+  <a>Name of Product: {{selectedTransaction.product.title}}</a><br>
+  <a>Price of Product: {{selectedTransaction.product.price}} $</a><br>
+  <a>Name of Customer: {{selectedTransaction.user.email}}</a>
+</div>
+
+
