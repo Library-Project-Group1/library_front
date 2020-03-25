@@ -29,7 +29,7 @@
 <div *ngIf="selectedCategory">
   <h2>{{selectedCategory.name | uppercase}}</h2>
     <div><span>id: </span>{{selectedCategory.id}}</div>
-  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="editForm">
     <div class="form-group">
       <label for="name">Actual category name : {{ selectedCategory.name}}</label>
       <input type="text" formControlName="name" placeholder="New category name...." name="name" class="form-control" id="name">

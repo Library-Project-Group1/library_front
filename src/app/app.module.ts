@@ -11,8 +11,9 @@ import { UserFormComponent } from './components/user/user-form/user-form.compone
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ThemeFormComponent } from './components/theme/theme-form/theme-form.component';
-import { CategoryComponent } from './components/Category/Category/category.component';
-import { CategoryListComponent } from './components/Category/Category-list/category-list.component';
+import { CategoryComponent } from './components/Category/category/category.component';
+import { CategoryListComponent} from './components/Category/Category-list/category-list.component';
+import { CategoryCreateComponent} from './components/Category/category-create/category-create.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { CategoryListComponent } from './components/Category/Category-list/categ
     ThemeFormComponent,
     CategoryComponent,
     CategoryListComponent,
+    CategoryCreateComponent
   ],
 
   imports: [

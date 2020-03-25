@@ -56,42 +56,38 @@ export class CategoryListComponent implements OnInit {
       .subscribe(category => {
         this.categories.push(category);
         alert('Category successfully created !');
+        this.router.navigate(['categories/listCategories']);
       });
+  }
+
+  updateCategory(category: Category) {
+    this.categoryService.updateCategoryById(category).subscribe(newCategory => {
+      this.category = newCategory;
+    });
   }
 
   // updateCategory(category: Category) {
-  //   this.categoryService.updateCategoryById(category, category.name).subscribe(newCategory => {
-  //     this.category = newCategory;
+  //   this.editForm = this.formBuilder.group({
+  //     id: [''],
+  //     name: ['', Validators.required],
   //   });
+  //   this.categoryService.findCategoryById(category.id)
+  //     .subscribe(() => {
+  //       this.editForm.setValue(name);
+  //     });
   // }
-  updateCategory(category: Category) {
-    const categoryId = window.localStorage.getItem('editCategoryId');
-    if (!categoryId) {
-      alert('Invalid action.');
-      this.router.navigate(['list-user']);
-      return;
-    }
-    this.editForm = this.formBuilder.group({
-      id: [''],
-      name: ['', Validators.required],
-    });
-    this.categoryService.findCategoryById(category.id)
-      .subscribe(() => {
-        this.editForm.setValue(name);
-      });
-  }
-
-  onSubmit() {
-    this.categoryService.updateCategoryById(this.editForm.value)
-      .pipe(first())
-      .subscribe(
-        name => {
-          if (name != null) {
-            alert('Category successfully updated !');
-            this.router.navigate(['list-user']);
-          } else {
-            alert('Category has name = null');
-          }
-        });
-  }
+  //
+  // onSubmit() {
+  //   this.categoryService.updateCategoryById(this.editForm.value)
+  //     .pipe(first())
+  //     .subscribe(
+  //       name => {
+  //         if (name != null) {
+  //           alert('Category successfully updated !');
+  //           this.router.navigate(['list-user']);
+  //         } else {
+  //           alert('Category has name = null');
+  //         }
+  //       });
+  // }
 }
