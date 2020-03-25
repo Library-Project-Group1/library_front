@@ -14,28 +14,14 @@ export class ThemeFormComponent implements OnInit {
   @Input()
   theme: Theme;
   themes: Theme[];
-
-
-
   constructor(
-    private route: ActivatedRoute,
     private router: Router,
     private themeService: ThemeService,
-    private location: Location
-
   ) { }
 
   ngOnInit(): void {
-    this.getThemes();
-  }
-
-  getThemes(): void {
     this.themeService.findAllThemes().subscribe((themes => this.themes = themes),
       error => console.error('There are an error !', error));
-  }
-
-  save(theme: Theme) {
-    this.themeService.updateThemeById(theme).subscribe();
   }
 
   deleteSubmit(theme: Theme) {
@@ -48,8 +34,15 @@ export class ThemeFormComponent implements OnInit {
     this.themeService.createTheme({name} as Theme)
       .subscribe(theme => {
         this.themes.push(theme);
+        this.router.navigate(['theme/listThemes']);
       });
   }
+
+
+
+
+
+
 
 
 

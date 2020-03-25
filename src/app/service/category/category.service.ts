@@ -22,11 +22,11 @@ export class CategoryService {
     return this.http.get<Category>(this.categoriesUrl + '/category/' + categoryId);
   }
 
-  public deleteCategoryById(categoryID: number): Observable<Category> {
+  public deleteCategoryById(categoryID: number) {
     return this.http.delete<Category>(this.categoriesUrl + '/deleteCategory/' + categoryID, this.httpOptions);
   }
 
-  public updateCategoryById(category: Category): Observable<Category> {
+  public updateCategoryById(category: Category) {
     return this.http.put<Category>(this.categoriesUrl + '/category/' + category.id + '/editCategory', category, this.httpOptions);
   }
 

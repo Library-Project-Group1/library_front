@@ -20,6 +20,8 @@ import { CategoryComponent } from './components/Category/category/category.compo
 import { CategoryListComponent} from './components/Category/Category-list/category-list.component';
 import { CategoryCreateComponent} from './components/Category/category-create/category-create.component';
 import { ThemeCreateComponent } from './components/theme/theme-create/theme-create.component';
+import { CategoryEditComponent } from './components/Category/category-edit/category-edit.component';
+import { ThemeEditComponent } from './components/theme/theme-edit/theme-edit.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { ThemeCreateComponent } from './components/theme/theme-create/theme-crea
     CategoryComponent,
     CategoryListComponent,
     CategoryCreateComponent,
-    ThemeCreateComponent
+    ThemeCreateComponent,
+    CategoryEditComponent,
+    ThemeEditComponent
   ],
 
   imports: [

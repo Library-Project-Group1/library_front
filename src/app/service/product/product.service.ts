@@ -35,12 +35,7 @@ export class ProductService {
   }
 
   public updateProductById(product: Product) {
-    return this.http.put<Product>(this.productsUrl + 'product/' + product.id + '/editProduct', product.price, this.httpOptions);
-  }
-
-  // TODO à combiner avec celle du dessus (idem restController)
-  public updateStockProductById(product: Product) {
-    return this.http.put<Product>(this.productsUrl + 'product/' + product.id + '/editStockProduct', product, this.httpOptions);
+    return this.http.put<Product>(this.productsUrl + 'product/' + product.id + '/editProduct', product, this.httpOptions);
   }
 
   public createProduct(product: Product): Observable<Product> {

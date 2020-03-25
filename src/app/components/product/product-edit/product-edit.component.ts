@@ -36,7 +36,7 @@ export class ProductEditComponent implements OnInit {
     this.location.back();
   }
 
-  save(): void {
+  saveUpdateProduct(): void {
     this.productService.updateProductById(this.product)
       .subscribe(() => this.goBack());
   }
