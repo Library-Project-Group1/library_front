@@ -38,7 +38,7 @@ export class CategoryCreateComponent implements OnInit {
     this.categoryService.createCategory({name} as Category).subscribe(category => {
       this.categories.push(category);
       alert('Category successfully created !');
-      this.router.navigate(['categories/listCategories']);
+      this.router.navigate(['products/createProduct']);
     });
   }
 }

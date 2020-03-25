@@ -13,10 +13,18 @@
         </div>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary" (click)="createCategory(name.value); name.value=''"
+        <button type="submit" class="btn btn-success" (click)="createCategory(name.value); name.value=''"
                 [disabled]="angForm.pristine || angForm.invalid">Create Category</button>
       </div>
     </form>
+    <div>
+      <a routerLink="/products/listProducts" class="btn btn-outline-primary">
+        Go Back to products list
+      </a>
+      <a routerLink="/categories/listCategories" class="btn btn-outline-primary">
+        Go Back to categories list
+      </a>
+    </div>
   </div>
 </div>
 <router-outlet></router-outlet>
