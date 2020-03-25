@@ -14,6 +14,9 @@ import { ThemeFormComponent } from './components/theme/theme-form/theme-form.com
 import { CategoryComponent } from './components/Category/category/category.component';
 import { CategoryListComponent} from './components/Category/Category-list/category-list.component';
 import { CategoryCreateComponent} from './components/Category/category-create/category-create.component';
+import { ThemeComponent } from './components/theme/theme/theme.component';
+import { AddThemeComponent } from './components/theme/add-theme/add-theme.component';
+import { EditThemeComponent } from './components/theme/edit-theme/edit-theme.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { CategoryCreateComponent} from './components/Category/category-create/ca
     ThemeFormComponent,
     CategoryComponent,
     CategoryListComponent,
-    CategoryCreateComponent
+    CategoryCreateComponent,
+    ThemeComponent,
+    AddThemeComponent,
+    EditThemeComponent
   ],
 
   imports: [
