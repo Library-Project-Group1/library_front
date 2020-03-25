@@ -1,8 +1,11 @@
 import {Component, Input, OnInit, HostListener} from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {Router} from '@angular/router';
 import {Category} from '../../../models/category/category';
 import {CategoryService} from '../../../service/category/category.service';
 import {error} from '@angular/compiler/src/util';
+import {Observable} from 'rxjs';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-category-form',
@@ -15,11 +18,12 @@ export class CategoryListComponent implements OnInit {
   categories: Category[];
   category: Category;
   selectedCategory: Category;
+  editForm: FormGroup;
 
   constructor(
-    private route: ActivatedRoute,
     private router: Router,
     private categoryService: CategoryService,
+    private formBuilder: FormBuilder
   ) {
   }
 
@@ -34,6 +38,7 @@ export class CategoryListComponent implements OnInit {
 
   removeCategory(category: Category) {
     this.categoryService.deleteCategoryById(category.id).subscribe();
+    alert('Category successfully deleted!');
   }
 
   // @HostListener('document:keypress', ['$event'])
@@ -50,7 +55,8 @@ export class CategoryListComponent implements OnInit {
     this.categoryService.createCategory({name} as Category)
       .subscribe(category => {
         this.categories.push(category);
-        alert('Category created successfully !');
+        alert('Category successfully created !');
+        this.router.navigate(['categories/listCategories']);
       });
   }
 
@@ -59,4 +65,29 @@ export class CategoryListComponent implements OnInit {
       this.category = newCategory;
     });
   }
+
+  // updateCategory(category: Category) {
+  //   this.editForm = this.formBuilder.group({
+  //     id: [''],
+  //     name: ['', Validators.required],
+  //   });
+  //   this.categoryService.findCategoryById(category.id)
+  //     .subscribe(() => {
+  //       this.editForm.setValue(name);
+  //     });
+  // }
+  //
+  // onSubmit() {
+  //   this.categoryService.updateCategoryById(this.editForm.value)
+  //     .pipe(first())
+  //     .subscribe(
+  //       name => {
+  //         if (name != null) {
+  //           alert('Category successfully updated !');
+  //           this.router.navigate(['list-user']);
+  //         } else {
+  //           alert('Category has name = null');
+  //         }
+  //       });
+  // }
 }

@@ -4,9 +4,10 @@ import { UserComponent } from './components/user/user/user.component';
 import {UserListComponent} from './components/user/user-list/user-list.component';
 import { UserFormComponent } from './components/user/user-form/user-form.component';
 import {AdminHomeComponent} from './components/admin/admin-home/admin-home.component';
-import {CategoryComponent} from './components/Category/Category/category.component';
+import {CategoryComponent} from './components/Category/category/category.component';
 import {CategoryListComponent} from './components/Category/Category-list/category-list.component';
 import {ThemeFormComponent} from './components/theme/theme-form/theme-form.component';
+import {CategoryCreateComponent} from './components/Category/category-create/category-create.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'users/createUser', component: UserFormComponent },
   { path: 'categories', component: CategoryComponent },
   { path: 'categories/listCategories', component: CategoryListComponent},
+  { path: 'categories/createCategory', component: CategoryCreateComponent},
   { path: 'themes', component: ThemeFormComponent}
 ];
 
