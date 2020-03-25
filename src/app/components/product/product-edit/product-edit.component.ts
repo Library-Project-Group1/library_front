@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import {Product} from '../../../models/product/product';
 import {ProductService} from '../../../service/product/product.service';
 
@@ -9,25 +11,35 @@ import {ProductService} from '../../../service/product/product.service';
 })
 export class ProductEditComponent implements OnInit {
 
-  // @Input()
+  @Input()
   product: Product;
 
-  productId: number;
-
-  constructor(private productService: ProductService) { }
+  constructor(
+    private productService: ProductService,
+    private route: ActivatedRoute,
+    private location: Location
+  ) { }
 
   ngOnInit() {
-    this.product = this.productService.product;
-    // this.onEdit(this.productId = this.productService.productId);
-    // this.productService.findProductById(this.productId).subscribe((product => this.product = product),
-    //      error => console.error('There are n error', error))
-
+    this.route.params.subscribe(params => {
+      const id = params['id'];
+      this.productService
+        .findProductById(id)
+        .subscribe((product => {
+        this.product = product;
+        }),
+            error => console.error('There are n error', error));
+    });
   }
 
+  goBack(): void {
+    this.location.back();
+  }
 
-  // onEdit(productId: number) {
-  //   this.productService.findProductById(this.productId).subscribe((product => this.product = product),
-  //     error => console.error('There are n error', error))
-  // }
+  save(): void {
+    this.productService.updateProductById(this.product)
+      .subscribe(() => this.goBack());
+  }
+
 
 }

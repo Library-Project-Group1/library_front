@@ -38,7 +38,7 @@ export class ThemeCreateComponent implements OnInit {
     this.themeService.createTheme({name} as Theme).subscribe(theme => {
       this.themes.push(theme);
       alert('Theme successfully created !');
-      this.router.navigate(['themes/listThemes']);
+      this.router.navigate(['products/createProduct']);
     });
   }
 }

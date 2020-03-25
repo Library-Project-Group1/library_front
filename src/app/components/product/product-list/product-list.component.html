@@ -18,7 +18,7 @@
         <th scope="col">Quantity Total</th>
         <th scope="col">Quantity Available</th>
         <th scope="col">Quantity Rented</th>
-        <th scope="col">File</th>
+<!--        <th scope="col">File</th>-->
       </tr>
       </thead>
       <tbody>
@@ -34,8 +34,8 @@
         <td>{{ product.quantityTotal }}</td>
         <td>{{ product.quantityAvailableToRent }}</td>
         <td>{{ product.quantityIsRenting }}</td>
-        <td>{{ product.pictureName }}</td>
-        <button (click)="ngOnDestroy(product.id)" [routerLink]="['edit',product.id]">EDIT</button>
+<!--        <td>{{ product.pictureName }}</td>-->
+        <button [routerLink]="['edit',product.id]">EDIT</button>
         <br>
         <button (click)="onDelete(product.id)">DELETE</button>
       </tr>
