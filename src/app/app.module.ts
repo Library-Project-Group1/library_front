@@ -11,7 +11,7 @@ import { UserFormComponent } from './components/user/user-form/user-form.compone
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { TransactionComponent } from './components/transaction/transaction/transaction.component';
 import { TransactionListComponent } from './components/transaction/transaction-list/transaction-list.component';
-// import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -21,17 +21,17 @@ import { TransactionListComponent } from './components/transaction/transaction-l
     UserFormComponent,
     AdminHomeComponent,
     TransactionComponent,
-    TransactionListComponent
+    TransactionListComponent,
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    // NgbModule
+    NgbModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-

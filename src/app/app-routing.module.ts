@@ -6,13 +6,14 @@ import { UserFormComponent } from './components/user/user-form/user-form.compone
 import {TransactionComponent} from './components/transaction/transaction/transaction.component';
 import {AdminHomeComponent} from './components/admin/admin-home/admin-home.component';
 
+
 const routes: Routes = [
   { path: '', redirectTo: '/admin-home', pathMatch: 'full' },
   { path: 'admin-home', component: AdminHomeComponent },
   { path: 'users', component: UserComponent },
   { path: 'users/listUsers', component: UserListComponent },
   { path: 'users/createUser', component: UserFormComponent },
-  { path: 'transaction', component: TransactionComponent}
+  { path: 'transaction', component: TransactionComponent},
 
 ];
 

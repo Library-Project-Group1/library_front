@@ -14,8 +14,20 @@
         <td>{{transaction.id}}</td>
         <td>{{transaction.user.email}}</td>
         <td>{{transaction.product.title}}</td>
+        <button class="btn btn-info" (click)="onSelectTransaction(transaction)">Details</button>
       </tr>
       </tbody>
     </table>
   </div>
 </div>
+
+<div *ngIf="selectedTransaction">
+  <h2>Details of the Transaction n°{{selectedTransaction.id}})</h2>
+
+  <a>Category of Product: {{selectedTransaction.product.category.name}}</a><br>
+  <a>Name of Product: {{selectedTransaction.product.title}}</a><br>
+  <a>Price of Product: {{selectedTransaction.product.price}} $</a><br>
+  <a>Name of Customer: {{selectedTransaction.user.email}}</a>
+</div>
+
+

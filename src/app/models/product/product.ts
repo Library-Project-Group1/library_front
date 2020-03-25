@@ -1,3 +1,5 @@
+import {Category} from '../category/category';
+
 export class Product {
   id: number;
   title: string;
@@ -9,6 +11,7 @@ export class Product {
   quantityIsRenting: number;
   price: number;
   pictureName: string;
+  category: Category;
 
   // Remplissage constructor pas encore nécessaire
   constructor() {

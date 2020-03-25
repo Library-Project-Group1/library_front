@@ -18,8 +18,8 @@ export class TransactionService {
     return this.http.get<Transaction>(this.transactionsUrl + '/transaction/' + transactionId);
   }
 
-  public findTransactionByUser(): Observable<Transaction> {
-    return this.http.get<Transaction>(this.transactionsUrl + '/transaction/user');
+  public findTransactionByUser(id: number): Observable<Transaction> {
+    return this.http.get<Transaction>(this.transactionsUrl + 'transaction/user');
   }
 
   public findTransactionByIProduct(): Observable<Transaction> {
