@@ -18,7 +18,7 @@ import { ProductComponent } from './components/product/product/product.component
 import { ProductEditComponent } from './components/product/product-edit/product-edit.component';
 import { ThemeFormComponent } from './components/theme/theme-form/theme-form.component';
 import { CategoryComponent } from './components/Category/category/category.component';
-import { CategoryListComponent} from './components/Category/Category-list/category-list.component';
+import { CategoryListComponent} from './components/Category/category-list/category-list.component';
 import { CategoryCreateComponent} from './components/Category/category-create/category-create.component';
 import { ThemeCreateComponent } from './components/theme/theme-create/theme-create.component';
 import { CategoryEditComponent } from './components/Category/category-edit/category-edit.component';

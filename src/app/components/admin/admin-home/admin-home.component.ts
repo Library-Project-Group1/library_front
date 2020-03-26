@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-admin-home',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminHomeComponent implements OnInit {
 
-  constructor() { }
+  links = [
+    {title: 'AddProduct', fragment: ''}
+  ];
+
+  constructor(public route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
   }
