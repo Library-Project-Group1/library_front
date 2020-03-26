@@ -19,7 +19,7 @@ import {ThemeEditComponent} from './components/theme/theme-edit/theme-edit.compo
 
 const routes: Routes = [
   { path: '', redirectTo: '/admin-home', pathMatch: 'full' },
-  { path: 'admin-home', component: AdminHomeComponent },
+  // { path: 'admin-home', component: AdminHomeComponent },
   { path: 'users', component: UserComponent },
   { path: 'users/listUsers', component: UserListComponent },
   { path: 'users/createUser', component: UserFormComponent },
