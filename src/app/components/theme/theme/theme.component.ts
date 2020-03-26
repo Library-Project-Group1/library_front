@@ -11,5 +11,4 @@ export class ThemeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

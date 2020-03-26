@@ -2,6 +2,7 @@ import {Component, Input, OnInit, HostListener} from '@angular/core';
 import {Router} from '@angular/router';
 import {Category} from '../../../models/category/category';
 import {CategoryService} from '../../../service/category/category.service';
+import {Location} from '@angular/common';
 import {error} from '@angular/compiler/src/util';
 import {Observable} from 'rxjs';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -21,7 +22,8 @@ export class CategoryListComponent implements OnInit {
   constructor(
     private router: Router,
     private categoryService: CategoryService,
-  ){ }
+    private location: Location
+  ) { }
 
   ngOnInit(): void {
     this.categoryService.findAllCategories().subscribe((categories => this.categories = categories),
@@ -29,10 +31,10 @@ export class CategoryListComponent implements OnInit {
   }
 
   removeCategory(category: Category) {
-    this.categoryService.deleteCategoryById(category.id).subscribe();
+    this.categoryService.deleteCategoryById(category.id).subscribe((result => this.ngOnInit()),
+      error => console.error('There are an error', error));
     alert('Category successfully deleted!');
   }
-
   createCategory(name: string): void {
     name = name.trim();
     if (!name) {
@@ -42,7 +44,7 @@ export class CategoryListComponent implements OnInit {
       .subscribe(category => {
         this.categories.push(this.category);
         alert('Category successfully created !');
-        this.router.navigate(['categories/listCategories']);
-      });
+        this.ngOnInit();
+        });
   }
 }
