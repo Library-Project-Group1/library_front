@@ -23,6 +23,8 @@ import { CategoryCreateComponent} from './components/Category/category-create/ca
 import { ThemeCreateComponent } from './components/theme/theme-create/theme-create.component';
 import { CategoryEditComponent } from './components/Category/category-edit/category-edit.component';
 import { ThemeEditComponent } from './components/theme/theme-edit/theme-edit.component';
+import {AddThemeComponent} from './components/theme/add-theme/add-theme.component';
+import {ThemeComponent} from './components/theme/theme/theme.component';
 
 @NgModule({
   declarations: [
