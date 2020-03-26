@@ -36,7 +36,7 @@ export class CategoryEditComponent implements OnInit {
     this.location.back();
   }
 
-  updateCategory(): void{
+  updateCategory(): void {
     this.categoryService.updateCategoryById(this.category)
       .subscribe(result => this.goBack());
   }
