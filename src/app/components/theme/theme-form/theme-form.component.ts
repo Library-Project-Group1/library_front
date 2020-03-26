@@ -25,7 +25,7 @@ export class ThemeFormComponent implements OnInit {
   }
 
   deleteSubmit(theme: Theme) {
-    this.themeService.deleteThemeById(theme.id).subscribe();
+    this.themeService.deleteThemeById(theme.id).subscribe( result => this.ngOnInit());
   }
 
   addSubmit(name: string): void {
@@ -34,7 +34,7 @@ export class ThemeFormComponent implements OnInit {
     this.themeService.createTheme({name} as Theme)
       .subscribe(theme => {
         this.themes.push(theme);
-        this.router.navigate(['theme/listThemes']);
+        this.ngOnInit();
       });
   }
 
