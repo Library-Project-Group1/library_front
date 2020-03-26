@@ -28,13 +28,13 @@ const routes: Routes = [
   {path: 'products/listProducts', component: ProductListComponent},
   {path: 'products/createProduct', component: AddProductComponent},
   {path: 'products/listProducts/edit/:id', component: ProductEditComponent},
-  {path: 'categories&themes', component: CategoryComponent },
-  {path: 'categories&themes/listCategories', component: CategoryListComponent},
-  {path: 'categories&themes/createCategory', component: CategoryCreateComponent},
-  {path: 'categories&themes/listCategories/edit/:id', component: CategoryEditComponent},
-  {path: 'categories&themes/listThemes', component: ThemeFormComponent},
-  {path: 'categories&themes/createTheme', component: ThemeCreateComponent},
-  {path: 'categories&themes/listThemes/edit/:id', component: ThemeEditComponent},
+  // {path: 'categories&themes', component: CategoryComponent },
+  {path: 'categories/listCategories', component: CategoryListComponent},
+  {path: 'categories/createCategory', component: CategoryCreateComponent},
+  {path: 'categories/listCategories/edit/:id', component: CategoryEditComponent},
+  {path: 'themes/listThemes', component: ThemeFormComponent},
+  {path: 'themes/createTheme', component: ThemeCreateComponent},
+  {path: 'themes/listThemes/edit/:id', component: ThemeEditComponent},
 ];
 
 @NgModule({
