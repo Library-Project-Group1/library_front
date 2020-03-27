@@ -21,7 +21,7 @@ export class CategoryListComponent implements OnInit {
   constructor(
     private router: Router,
     private categoryService: CategoryService,
-  ){ }
+  ) { }
 
   ngOnInit(): void {
     this.categoryService.findAllCategories().subscribe((categories => this.categories = categories),
