@@ -1,6 +1,3 @@
-<nav>
-  <button routerLink="/products">Return</button>
-</nav>
 <br>
 <div>
   <h5>Add a new Category ?</h5>
@@ -14,136 +11,168 @@
 <br>
 <h2>Add new product</h2>
 
-<!-- TODO VALIDATORS AND PATTERN-->
-
 <div class="card my-5">
   <div class="card-body">
-    <form [formGroup]="fg" novalidate>
+<!--    (ngSubmit)="addProduct()"-->
+    <form [formGroup] ="fg" novalidate>
       <div class="form-group">
         <label for="category">Categories :</label><br/>
-        <select id="category" [(ngModel)]="categories"
-                name="category"
-                required #category="ngModel">
-          <option *ngFor="let category of categories" [value]="category"> {{category.name}} </option>
+        <select id="category" name="category" formControlName="category" #category>
+          <option [ngValue]="null" disabled>Choose a category</option>
+          <option *ngFor="let category of categories" [ngValue]="category.id">{{category.name}}</option>
         </select>
+      </div>
+      <div *ngIf="fg.controls['category'].invalid && (fg.controls['category'].dirty || fg.controls['category'].touched)" class="alert alert-danger">
+        <div *ngIf="fg.controls['category'].errors.required">Category is required</div>
       </div>
 <!--      <div [hidden]="!category.pristine" class="alert alert-danger">Category is required</div>-->
 
       <div class="form-group">
         <label for="theme">Themes :</label><br/>
-        <select id="theme" [(ngModel)]="themes"
-                name="theme"
-                required #theme="ngModel">
-          <option *ngFor="let theme of themes" [value]="theme"> {{theme.name}} </option>
+        <select id="theme" name="theme" formControlName="theme" #theme>
+          <option [ngValue]="null" disabled>Choose a theme</option>
+          <option *ngFor="let theme of themes" [ngValue]="theme.id">{{theme.name}}</option>
         </select>
+      </div>
+      <div *ngIf="fg.controls['theme'].invalid && (fg.controls['theme'].dirty || fg.controls['theme'].touched)" class="alert alert-danger">
+        <div *ngIf="fg.controls['theme'].errors.required">Theme is required</div>
       </div>
 <!--      <div [hidden]="!theme.pristine" class="alert alert-danger">Theme is required</div>-->
 
-<!--      TODO: la div title est diff des autres parametres car c'etait un test... -->
       <div class="form-group">
         <label class="col-md-4">Title :</label><br/>
         <input type="text"
-               class="form-control"
                formControlName="title"
-               placeholder="Enter title">
+               #title
+               placeholder="Enter title"
+               required
+               id="title"
+               class="form-control">
       </div>
-      <div *ngIf="fg.controls[''].invalid && (fg.controls['title'].dirty || fg.controls['title'].touched)"
-           class="alert alert-danger">
+      <div *ngIf="fg.controls['title'].invalid && (fg.controls['title'].dirty || fg.controls['title'].touched)" class="alert alert-danger">
         <div *ngIf="fg.controls['title'].errors.required">Title is required</div>
       </div>
       <!--      <div [hidden]="!title.pristine" class="alert alert-danger">Title is required</div>-->
 
 
       <div class="form-group">
-        <label for="creator">Creator :</label><br/>
-        <input type="text" [(ngModel)]="product.creator"
-               class="form-control"
-               id="creator"
-               name="creator"
+        <label class="col-md-4">Creator :</label><br/>
+        <input type="text"
+               formControlName="creator"
+               #creator
                placeholder="Enter creator's name"
-               required #creator="ngModel">
+               required
+               id="creator"
+               class="form-control">
       </div>
-<!--      <div [hidden]="!creator.pristine" class="alert alert-danger">Creator's name is required</div>-->
+      <div *ngIf="fg.controls['creator'].invalid && (fg.controls['creator'].dirty || fg.controls['creator'].touched)" class="alert alert-danger">
+        <div *ngIf="fg.controls['creator'].errors.required">Creator is required</div>
+      </div>
+      <!--      <div [hidden]="!creator.pristine" class="alert alert-danger">Creator's name is required</div>&ndash;&gt;-->
 
       <div class="form-group">
-        <label for="date">Date :</label><br/>
-        <input type="date" [(ngModel)]="product.releaseDate"
-               class="form-control"
-               id="date"
-               name="date"
-               required #date="ngModel">
+        <label for="releaseDate">Release Date :</label><br/>
+        <input type="date"
+               formControlName="releaseDate"
+               #releaseDate
+               placeholder="Enter the release date"
+               required
+               id="releaseDate"
+               class="form-control">
       </div>
-<!--      <div [hidden]="!date.pristine" class="alert alert-danger">Date is required</div>-->
+      <div *ngIf="fg.controls['releaseDate'].invalid && (fg.controls['releaseDate'].dirty || fg.controls['releaseDate'].touched)" class="alert alert-danger">
+        <div *ngIf="fg.controls['releaseDate'].errors.required">Release Date is required</div>
+      </div>
+      <!--    <div [hidden]="!date.pristine" class="alert alert-danger">Date is required</div>&ndash;&gt;-->
 
       <div class="form-group">
-        <label for="creator">Description :</label><br/>
-        <input type="text" [(ngModel)]="product.description"
-               class="form-control"
+        <label for="description">Description :</label><br/>
+        <input type="text"
+               formControlName="description"
+               #description
+               placeholder="Enter a description"
+               required
                id="description"
-               name="description"
-               placeholder="Enter description"
-               required #description="ngModel">
+               class="form-control">
       </div>
-<!--      <div [hidden]="!description.pristine" class="alert alert-danger">Description is required</div>-->
+      <div *ngIf="fg.controls['description'].invalid && (fg.controls['description'].dirty || fg.controls['description'].touched)" class="alert alert-danger">
+        <div *ngIf="fg.controls['description'].errors.required">Description is required</div>
+      </div>
+      <!--      <div [hidden]="!description.pristine" class="alert alert-danger">Description is required</div>&ndash;&gt;-->
 
       <div class="form-group">
         <label for="price">Price :</label><br/>
-        <input type="number" min="0" step="0.01" [(ngModel)]="product.creator"
-               class="form-control"
+        <input type="number" min="0" step="0.01"
+               formControlName="price"
+               #price
+               placeholder="Enter a price"
+               required
                id="price"
-               name="price"
-               placeholder="Enter price"
-               required #price="ngModel">
+               class="form-control">
       </div>
-<!--      <div [hidden]="!price.pristine" class="alert alert-danger">Price is required</div>-->
+      <div *ngIf="fg.controls['price'].invalid && (fg.controls['price'].dirty || fg.controls['price'].touched)" class="alert alert-danger">
+        <div *ngIf="fg.controls['price'].errors.required">Price is required</div>
+      </div>
+      <!--      <div [hidden]="!price.pristine" class="alert alert-danger">Price is required</div>&ndash;&gt;-->
 
       <div class="form-group">
         <label for="quantityTotal">Quantity Total :</label><br/>
-        <input type="number" min="0" [(ngModel)]="product.quantityTotal"
-               class="form-control"
+        <input type="number" min="0"
+               formControlName="quantityTotal"
+               #quantityTotal
+               placeholder="Enter a total quantity"
+               required
                id="quantityTotal"
-               name="quantityTotal"
-               placeholder="Enter total quantity"
-               required #quantityTotal="ngModel">
+               class="form-control">
       </div>
-<!--      <div [hidden]="!quantityTotal.pristine" class="alert alert-danger">Quantity is required</div>-->
+      <div *ngIf="fg.controls['quantityTotal'].invalid && (fg.controls['quantityTotal'].dirty || fg.controls['quantityTotal'].touched)" class="alert alert-danger">
+        <div *ngIf="fg.controls['quantityTotal'].errors.required">Quantity Total is required</div>
+      </div>
+      <!--     <div [hidden]="!quantityTotal.pristine" class="alert alert-danger">Quantity is required</div>&ndash;&gt;-->
 
       <div class="form-group">
         <label for="quantityAvailable">Quantity Available :</label><br/>
-        <input type="number" min="0" [(ngModel)]="product.quantityTotal"
+        <input type="number" min="0"
+               formControlName="quantityAvailable"
+               #quantityAvailable
+               placeholder="Enter an available quantity"
+               required
                class="form-control"
-               id="quantityAvailable"
-               name="quantityAvailable"
-               placeholder="Enter available quantity"
-               required #quantityAvailable="ngModel">
+               id="quantityAvailable">
       </div>
-<!--      <div [hidden]="!quantityAvailable.pristine" class="alert alert-danger">Quantity is required</div>-->
+      <div *ngIf="fg.controls['quantityAvailable'].invalid && (fg.controls['quantityAvailable'].dirty || fg.controls['quantityAvailable'].touched)" class="alert alert-danger">
+        <div *ngIf="fg.controls['quantityAvailable'].errors.required">Quantity Available is required</div>
+      </div>
+      <!--     <div [hidden]="!quantityAvailable.pristine" class="alert alert-danger">Quantity is required</div>&ndash;&gt;-->
 
       <div class="form-group">
         <label for="quantityRented">Quantity Rented :</label><br/>
-        <input type="number" min="0" [(ngModel)]="product.quantityTotal"
+        <input type="number" min="0"
+               formControlName="quantityRented"
+               #quantityRented
+               placeholder="Enter a rented quantity"
+               required
                class="form-control"
-               id="quantityRented"
-               name="quantityRented"
-               placeholder="Enter rented quantity"
-               #quantityRented>
+               id="quantityRented">
       </div>
-<!--      <div [hidden]="!quantityRented.pristine" class="alert alert-danger">Quantity is required</div>-->
+      <div *ngIf="fg.controls['quantityRented'].invalid && (fg.controls['quantityRented'].dirty || fg.controls['quantityRented'].touched)" class="alert alert-danger">
+        <div *ngIf="fg.controls['quantityRented'].errors.required">Quantity Rented is required</div>
+      </div>
+      <!--      <div [hidden]="!quantityRented.pristine" class="alert alert-danger">Quantity is required</div>&ndash;&gt;-->
 
-      <div class="form-group">
-        <label for="picture">File :</label><br/>
-        <input type="file" [(ngModel)]="product.pictureName"
-               class="form-control"
-               id="picture"
-               name="picture"
-               placeholder="Enter file"
-               required #picture="ngModel">
-      </div>
+<!--      <div class="form-group">-->
+<!--        <label for="picture">File :</label><br/>-->
+<!--        <input type="file" [(ngModel)]="product.pictureName"-->
+<!--               class="form-control"-->
+<!--               id="picture"-->
+<!--               name="picture"-->
+<!--               placeholder="Enter file"-->
+<!--               required #picture="ngModel">-->
+<!--      </div>-->
 <!--      <div [hidden]="!picture.pristine" class="alert alert-danger">File is required</div>-->
       <br/>
-      <button type="submit" class="btn btn-info"
-              [disabled]="!fg.pristine || !fg.invalid"
-              (click)="addProduct(product)">
+      <button type="submit" class="btn btn-info" routerLink="/products/listProducts"
+              (click)="addProduct(category.value, theme.value, title.value, creator.value, releaseDate.value, description.value, price.value, quantityTotal.value, quantityAvailable.value, quantityRented.value)">
         Submit
       </button>
     </form>
