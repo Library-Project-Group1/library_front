@@ -1,25 +1,25 @@
 <app-category></app-category>
 <div class="card my-5">
   <div class="card-body">
-    <p>CATEGORIES LIST</p>
+    <h4>EDITING CATEGORY</h4><br>
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
       <tr>
-        <th scope="col">Id</th>
+        <th scope="col">#ID</th>
         <th scope="col">Name</th>
-        <th scope="col">Save</th>
-        <th scope="col">Return to the list</th>
+        <!--<th scope="col">Save</th>-->
+        <!--<th scope="col">Return to the list</th>-->
       </tr>
       </thead>
       <tbody>
       <tr *ngIf="category">
         <td> {{ category.id }}</td>
-        <td> <input [(ngModel)]="category.name" placeholder="{{ category.name }}"/></td>
+        <td><input [(ngModel)]="category.name" placeholder="{{ category.name }}"/></td>
         <td>
-          <a (click)="updateCategory()" class="btn btn-success">Save edit</a>
+          <button (click)="updateCategory()" class="btn btn-success">Save edit</button>
         </td>
         <td>
-          <a (click)="goBack()" class="btn btn-success">Return list categories</a>
+          <button (click)="goBack()" class="btn btn-success">Return list categories</button>
         </td>
       </tr>
       </tbody>

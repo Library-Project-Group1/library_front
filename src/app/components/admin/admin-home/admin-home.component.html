@@ -3,36 +3,68 @@
     <div class="col-md-12">
       <div class="card bg-dark my-5">
         <div class="card-body">
-          <h2 class="card-title text-center text-white py-3">Manage for admin</h2>
+          <h2 class="card-title text-center text-white py-3">Manage for Admin</h2>
 
-          <ul ngbNav [activeId]="route.fragment | async" class="nav-tabs">
-            <li [ngbNavItem]="link.fragment" *ngFor="let link of links">
-              <!--              class="list-inline-item">-->
-              <a ngbNavLink routerLink="products/createProduct" [fragment]="link.fragment"
-                 class="btn btn-info"> {{link.title}} </a>
-            </li>
+          <ngb-tabset class="nav-tabs" orientation="vertical">
+            <ngb-tab>
+              <ng-template ngbTabTitle class="list-inline-item">
+                <a routerLink="products/createProduct" class="btn btn-info">Add new product</a>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab>
+              <ng-template ngbTabTitle class="list-inline-item">
+                <a routerLink="products/listProducts" class="btn btn-info">Library inventory</a>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab>
+              <ng-template ngbTabTitle class="list-inline-item">
+                <a routerLink="users/listUsers" class="btn btn-info">List of Users</a>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab>
+              <ng-template ngbTabTitle class="list-inline-item">
+                <a routerLink="transaction" class="btn btn-info">Transaction history</a>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab>
+              <ng-template ngbTabTitle class="list-inline-item">
+                <a routerLink="categories/listCategories" class="btn btn-info">Manage Categories</a>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab>
+              <ng-template ngbTabTitle class="list-inline-item">
+                <a routerLink="themes/listThemes" class="btn btn-info">Manage Themes</a>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
 
-            <li class="list-inline-item">
-              <a routerLink="products/listProducts" class="btn btn-info">Library Inventory</a>
-            </li>
-            <li class="list-inline-item">
-              <a routerLink="users" class="btn btn-info">Manage Users</a>
-            </li>
-            <li class="list-inline-item">
-              <a routerLink="categories/listCategories" class="btn btn-info">Manage Categories</a>
-            </li>
-            <li class="list-inline-item">
-              <a routerLink="themes/listThemes" class="btn btn-info">Manage Themes</a>
-            </li>
-            <li class="list-inline-item">
-              <a routerLink="transaction" class="btn btn-info">View Transaction</a>
-            </li>
-          </ul>
+<!--                      <ul ngbNav [activeId]="route.fragment | async" class="nav-tabs">-->
+<!--                        &lt;!&ndash;text-center list-inline py-3&ndash;&gt;-->
+<!--                        <li [ngbNavItem]="link.fragment" *ngFor="let link of links">-->
+<!--                          <a ngbNavLink routerLink="products/createProduct" [fragment]="link.fragment"-->
+<!--                             class="btn btn-info"> {{link.title}} </a>-->
+<!--                        </li>-->
+<!--                      </ul>-->
         </div>
       </div>
+
+      <!--      <div class="card bg-dark my-5">-->
+      <!--        <div class="card-body">-->
+      <!--          <h2 class="card-title text-center text-white py-3">Manage for Users</h2>-->
+      <!--          <ngb-tabset>-->
+      <!--            <ngb-tab>-->
+      <!--              <ng-template ngbTabTitle class="list-inline-item">-->
+      <!--                <a routerLink="users/createUser" class="btn btn-info">Add new user</a>-->
+      <!--              </ng-template>-->
+      <!--            </ngb-tab>-->
+      <!--          </ngb-tabset>-->
+      <!--        </div>-->
+      <!--      </div>-->
+
     </div>
   </div>
 </div>
 <router-outlet></router-outlet>
 
-<!--text-center list-inline py-3-->
+<!--<footer class="text-center">&copy;MyLibraryConnected</footer>-->
+

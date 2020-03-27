@@ -14,15 +14,15 @@ import {TransactionListComponent} from './components/transaction/transaction-lis
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AddProductComponent} from './components/product/add-product/add-product.component';
 import {ProductListComponent} from './components/product/product-list/product-list.component';
-import { ProductComponent } from './components/product/product/product.component';
-import { ProductEditComponent } from './components/product/product-edit/product-edit.component';
-import { ThemeFormComponent } from './components/theme/theme-form/theme-form.component';
-import { CategoryComponent } from './components/Category/category/category.component';
-import { CategoryListComponent} from './components/Category/category-list/category-list.component';
-import { CategoryCreateComponent} from './components/Category/category-create/category-create.component';
-import { ThemeCreateComponent } from './components/theme/theme-create/theme-create.component';
-import { CategoryEditComponent } from './components/Category/category-edit/category-edit.component';
-import { ThemeEditComponent } from './components/theme/theme-edit/theme-edit.component';
+import {ProductComponent} from './components/product/product/product.component';
+import {ProductEditComponent} from './components/product/product-edit/product-edit.component';
+import {ThemeFormComponent} from './components/theme/theme-form/theme-form.component';
+import {CategoryComponent} from './components/Category/category/category.component';
+import {CategoryListComponent} from './components/Category/category-list/category-list.component';
+import {CategoryCreateComponent} from './components/Category/category-create/category-create.component';
+import {ThemeCreateComponent} from './components/theme/theme-create/theme-create.component';
+import {CategoryEditComponent} from './components/Category/category-edit/category-edit.component';
+import {ThemeEditComponent} from './components/theme/theme-edit/theme-edit.component';
 import {AddThemeComponent} from './components/theme/add-theme/add-theme.component';
 import {ThemeComponent} from './components/theme/theme/theme.component';
 
@@ -47,7 +47,7 @@ import {ThemeComponent} from './components/theme/theme/theme.component';
     ThemeComponent,
     AddThemeComponent,
     CategoryEditComponent,
-    ThemeEditComponent
+    ThemeEditComponent,
   ],
 
   imports: [

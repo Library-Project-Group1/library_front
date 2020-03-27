@@ -1,9 +1,10 @@
 <div class="card my-5">
   <div class="card-body">
+    <h4>EDITING PRODUCT</h4><br>
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">#ID</th>
         <th scope="col">Category</th>
         <th scope="col">Theme</th>
         <th scope="col">Title</th>
@@ -14,7 +15,7 @@
         <th scope="col">Quantity Total</th>
         <th scope="col">Quantity Available</th>
         <th scope="col">Quantity Rented</th>
-<!--        <th scope="col">File</th>-->
+        <!--        <th scope="col">File</th>-->
       </tr>
       </thead>
       <tbody>
@@ -26,14 +27,17 @@
         <td>{{ product.creator }}</td>
         <td>{{ product.releaseDate }}</td>
         <td>{{ product.description }}</td>
-        <td> <input [(ngModel)]="product.price" placeholder="{{ product.price }}"/></td>
-        <td> <input [(ngModel)]="product.quantityTotal" placeholder="{{ product.quantityTotal }}"/> </td>
+        <td><input [(ngModel)]="product.price" placeholder="{{ product.price }}"/></td>
+        <td><input [(ngModel)]="product.quantityTotal" placeholder="{{ product.quantityTotal }}"/></td>
         <td>{{ product.quantityAvailableToRent }}</td>
         <td>{{ product.quantityIsRenting }}</td>
-<!--        <td>{{ product.pictureName }}</td>-->
-        <button (click)="saveUpdateProduct()">Save Update</button>
-        <br>
-        <button (click)="goBack()">Return list products</button>
+        <!--<td>{{ product.pictureName }}</td>-->
+        <td>
+          <button class="btn btn-success" (click)="saveUpdateProduct()">Save edit</button>
+        </td>
+        <td>
+          <button class="btn btn-success" (click)="goBack()">Return list products</button>
+        </td>
       </tr>
       </tbody>
     </table>

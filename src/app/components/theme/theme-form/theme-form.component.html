@@ -1,14 +1,14 @@
 <app-category></app-category>
 <div class="card my-5">
   <div class="card-body">
-    <p>THEMES LIST</p>
+    <h4>THEMES LIST</h4><br>
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
       <tr>
-        <th scope="col">Id</th>
+        <th scope="col">#ID</th>
         <th scope="col">Name</th>
-        <th scope="col">Edit Theme</th>
-        <th scope="col">Delete Theme</th>
+        <!--<th scope="col">Edit Theme</th>-->
+        <!--<th scope="col">Delete Theme</th>-->
       </tr>
       </thead>
       <tbody>
@@ -16,10 +16,10 @@
         <td> {{ theme.id }}</td>
         <td> {{ theme.name }}</td>
         <td>
-          <a [routerLink]="['edit',theme.id]" class="btn btn-success">Edit</a>
+          <button class="btn btn-success" [routerLink]="['edit',theme.id]">EDIT</button>
         </td>
         <td>
-          <a (click)="deleteSubmit(theme)" class="btn btn-success">Delete</a>
+          <button class="btn btn-success" (click)="deleteSubmit(theme)">DELETE</button>
         </td>
       </tr>
       </tbody>
@@ -28,12 +28,10 @@
 </div>
 <div>
   <form>
-    <label>New Theme name:
+    <label>Add a new Theme :
       <input #newThemeName/>
     </label>
-    <button (click)="addSubmit(newThemeName.value); newThemeName.value=''">
-      Add
-    </button>
+    <button (click)="addSubmit(newThemeName.value); newThemeName.value=''">Submit</button>
   </form>
 </div>
 <router-outlet></router-outlet>
