@@ -25,12 +25,16 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.displayList();
+  }
+
+  public displayList() {
     this.productService.findAllProducts().subscribe((products => this.products = products),
       error => console.error('There are an error', error));
   }
 
   public onDelete(productId: number) {
-    this.productService.deleteProductById(productId).subscribe((result => this.ngOnInit()),
+    this.productService.deleteProductById(productId).subscribe((result => this.displayList()),
       error => console.error('There are an error', error));
   }
 }

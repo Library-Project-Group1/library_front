@@ -20,12 +20,16 @@ export class ThemeFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.displayList();
+  }
+
+  displayList(): void {
     this.themeService.findAllThemes().subscribe((themes => this.themes = themes),
       error => console.error('There are an error !', error));
   }
 
   deleteSubmit(theme: Theme) {
-    this.themeService.deleteThemeById(theme.id).subscribe( result => this.ngOnInit());
+    this.themeService.deleteThemeById(theme.id).subscribe( result => this.displayList());
   }
 
   addSubmit(name: string): void {

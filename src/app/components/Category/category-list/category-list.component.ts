@@ -26,12 +26,16 @@ export class CategoryListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.displayList();
+  }
+
+  displayList(): void {
     this.categoryService.findAllCategories().subscribe((categories => this.categories = categories),
       error1 => console.error('There are an error!', error1));
   }
 
   removeCategory(category: Category) {
-    this.categoryService.deleteCategoryById(category.id).subscribe((result => this.ngOnInit()),
+    this.categoryService.deleteCategoryById(category.id).subscribe((result => this.displayList()),
       error => console.error('There are an error', error));
     alert('Category successfully deleted!');
   }
